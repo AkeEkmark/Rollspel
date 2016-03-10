@@ -27,6 +27,7 @@ public class MainApp {
 		dungeonMap.add(firstRoom);
 		DungeonInstance di = new DungeonInstance(dungeonMap, character);
 		StateInterface state = new DefaultState();
+		state.interactionLoop();
 		System.out.println("You wake up in a dark room");
 		System.out.println("Suddenly you are attacked!");
 		state = new FightState(kobold, character);

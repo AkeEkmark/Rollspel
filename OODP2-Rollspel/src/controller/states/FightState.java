@@ -25,10 +25,17 @@ public class FightState implements StateInterface {
 				fight.execute();
 			} catch (MonsterIsDeadException e) {
 				System.out.println("The monster is dead");
+				new DefaultState().interactionLoop();
 				break;
 			} catch (CharacterIsDeadException e) {
-				System.out.println("You life and adventure ends here");
+				new DefeatState().interactionLoop();
 				break;
+			}
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 	}
