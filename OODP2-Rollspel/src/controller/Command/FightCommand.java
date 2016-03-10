@@ -47,7 +47,12 @@ public class FightCommand implements CommandInterface {
 		villainTmp = d10.roll()+villain.getStrength();
 		gap = villainTmp - heroTmp;
 		hero.removeHitpoints(ft.hitPointsFromGap(gap));
-	}
+		if(gap>0){
+		System.out.println("You where hit by the nasty kobold! His nasty strike wounds for "+ft.hitPointsFromGap(gap) + " hitpoints");
+		} else{
+			System.out.println("the kobold misses your body and hisses in anger");
+		}
+		}
 	private void characterStrike() throws MonsterIsDeadException {
 		int heroTmp = 0;
 		int villainTmp = 0;
@@ -56,6 +61,11 @@ public class FightCommand implements CommandInterface {
 		villainTmp = d10.roll()+villain.getStrength();
 		gap = heroTmp - villainTmp;
 		villain.removeHitpoints(ft.hitPointsFromGap(gap));
+		if(gap>0){
+		System.out.println("You strike the kobold so hard his candle flies through the air and he loses "+ ft.hitPointsFromGap(gap) + " hitpoints");
+		}else{
+			System.out.println("You strike far above the kobolds head, unused to fight such short beeings");
+		}
 	}
 
 }
