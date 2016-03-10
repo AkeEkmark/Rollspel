@@ -32,7 +32,7 @@ public abstract class Monster {
 	public String getDescription() {
 		return description;
 	}
-	public void removeHitpoints(int hpToRemove) throws CharacterIsDeadException, MonsterIsDeadException{
+	public void removeHitpoints(int hpToRemove) throws MonsterIsDeadException{
 		hitpoints -= hpToRemove;
 		if (hitpoints <= 0){
 			throw new MonsterIsDeadException();

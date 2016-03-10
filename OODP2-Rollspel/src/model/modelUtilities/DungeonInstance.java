@@ -1,11 +1,12 @@
 package model.modelUtilities;
 
 import java.util.List;
-
+import model.characterModel.Character;
 import model.roomModel.Location;
 
 public class DungeonInstance implements LocationInstance {
 	private List<Location> dungeonMap;
+
 	private Character character;
 	private int index = 0;
 	
@@ -25,8 +26,11 @@ public class DungeonInstance implements LocationInstance {
 	}
 
 	@Override
-	public Location currentLocation() {	
+	public Location getCurrentLocation() {	
 		return dungeonMap.get(index);
 	}
 
+	public Character getCharacter() {
+		return character;
+	}
 }
