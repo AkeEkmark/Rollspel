@@ -7,6 +7,7 @@ import model.roomModel.Location;
 public class DungeonInstance implements LocationInstance {
 	private List<Location> dungeonMap;
 	private Character character;
+	private int index = 0;
 	
 	public DungeonInstance(List<Location> dungeonMap, Character character){
 		this.dungeonMap = dungeonMap;
@@ -15,13 +16,17 @@ public class DungeonInstance implements LocationInstance {
 	}
 	
 	@Override
-	public void moveCharacter() {
-
+	public void moveCharacter(Location nextRoom) {
+		for(int i = 0; i< dungeonMap.size(); i++){
+			if (dungeonMap.get(i).equals(nextRoom)){
+				index = i; 
+			}
+		}
 	}
 
 	@Override
-	public Location currentLocation() {
-		return null;
+	public Location currentLocation() {	
+		return dungeonMap.get(index);
 	}
 
 }
