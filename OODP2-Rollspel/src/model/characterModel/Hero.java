@@ -1,6 +1,8 @@
 package model.characterModel;
 
-public abstract class Character {
+import java.util.Observable;
+
+public abstract class Hero extends Observable {
 
 	protected String name;
 	protected int strength;
@@ -10,7 +12,7 @@ public abstract class Character {
 	protected int maxHitpoints;
 	protected Inventory inventory;
 
-	public Character(String name){
+	public Hero(String name){
 		this.name = name;
 	}
 	public String getName() {
@@ -45,11 +47,15 @@ public abstract class Character {
 		if (hitpoints <= 0){
 			throw new CharacterIsDeadException();
 		}
+		setChanged();
+	    notifyObservers();
 	}
 	public void addHitpoints(int hpToAdd){
 		hitpoints += hpToAdd;
 		if (hitpoints > maxHitpoints){
 			hitpoints = maxHitpoints;
 		}
+		setChanged();
+	    notifyObservers();
 	}
 }

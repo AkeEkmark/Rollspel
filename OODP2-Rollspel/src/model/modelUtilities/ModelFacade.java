@@ -5,7 +5,7 @@ import model.entitiesModel.Loot;
 import model.entitiesModel.Monster;
 import model.entitiesModel.MonsterIsDeadException;
 import model.roomModel.Location;
-import model.characterModel.Character;
+import model.characterModel.Hero;
 
 public interface ModelFacade {
 
@@ -14,7 +14,7 @@ public interface ModelFacade {
 	public void removeHitpointsFromCharacter(int hitPoints) throws CharacterIsDeadException;
 	public void removeHitpointsFromMonster(int hitPoints, Monster monster) throws MonsterIsDeadException;
 	public void addHitpointsToCharacter(int hitPoints);
-	public Character getCharacter();
+	public Hero getCharacter();
 	public Location getLocation();
 	
 	

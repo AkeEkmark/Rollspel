@@ -8,6 +8,7 @@ public class MonsterLocation extends LocationDecorator {
 	public MonsterLocation(Location location, Monster monster) {
 		super(location);
 		this.monster = monster;
+		addAction(Action.Fight);
 		
 	}
 	public Monster getMonster() {

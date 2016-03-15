@@ -1,17 +1,18 @@
 package controller.states;
 
+import controller.GameOutput;
 import controller.Command.FightCommand;
-import model.characterModel.Character;
+import model.characterModel.Hero;
 import model.characterModel.CharacterIsDeadException;
 import model.entitiesModel.Monster;
 import model.entitiesModel.MonsterIsDeadException;
 
 public class FightState implements StateInterface {
 	Monster monster;
-	Character character;
+	Hero character;
 
 	
-	public FightState(Monster monster, Character character) {
+	public FightState(Monster monster, Hero character) {
 		this.monster = monster;
 		this.character = character;
 				
@@ -24,7 +25,7 @@ public class FightState implements StateInterface {
 			try {
 				fight.execute();
 			} catch (MonsterIsDeadException e) {
-				System.out.println("The monster is dead");
+				GameOutput.addGameText("The monster is dead", false);
 				new DefaultState().interactionLoop();
 				break;
 			} catch (CharacterIsDeadException e) {

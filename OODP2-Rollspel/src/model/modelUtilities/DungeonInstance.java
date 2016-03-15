@@ -1,16 +1,16 @@
 package model.modelUtilities;
 
 import java.util.List;
-import model.characterModel.Character;
+import model.characterModel.Hero;
 import model.roomModel.Location;
 
 public class DungeonInstance implements LocationInstance {
 	private List<Location> dungeonMap;
 
-	private Character character;
+	private Hero character;
 	private int index = 0;
 	
-	public DungeonInstance(List<Location> dungeonMap, Character character){
+	public DungeonInstance(List<Location> dungeonMap, Hero character){
 		this.dungeonMap = dungeonMap;
 		this.character = character;
 		
@@ -30,7 +30,7 @@ public class DungeonInstance implements LocationInstance {
 		return dungeonMap.get(index);
 	}
 
-	public Character getCharacter() {
+	public Hero getCharacter() {
 		return character;
 	}
 }

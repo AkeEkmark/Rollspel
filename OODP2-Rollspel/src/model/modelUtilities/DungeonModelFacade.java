@@ -5,7 +5,7 @@ import model.entitiesModel.Loot;
 import model.entitiesModel.Monster;
 import model.entitiesModel.MonsterIsDeadException;
 import model.roomModel.Location;
-import model.characterModel.Character;
+import model.characterModel.Hero;
 
 public class DungeonModelFacade implements ModelFacade {
 	private DungeonInstance di;
@@ -39,7 +39,7 @@ public class DungeonModelFacade implements ModelFacade {
 	}
 
 	@Override
-	public Character getCharacter() {
+	public Hero getCharacter() {
 		return di.getCharacter();
 	}
 
