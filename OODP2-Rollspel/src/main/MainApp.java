@@ -13,6 +13,7 @@ import model.entitiesModel.Kobold;
 import model.entitiesModel.Monster;
 import model.modelUtilities.DungeonInstance;
 import model.modelUtilities.DungeonModelFacade;
+import model.modelUtilities.ModelFacade;
 import model.roomModel.DungeonLocation;
 import model.roomModel.Location;
 import model.roomModel.MonsterLocation;
@@ -31,13 +32,12 @@ public class MainApp {
 		firstRoom.setNorthExit(secondRoom);
 		dungeonMap.add(secondRoom);
 		DungeonInstance di = new DungeonInstance(dungeonMap, character);
-		Gui gui = new Gui(new DungeonModelFacade(di));
-		StateInterface state = new DefaultState();
+		ModelFacade modelFacade = new DungeonModelFacade(di);
+		Gui gui = new Gui(modelFacade);
+		StateInterface state = new DefaultState(modelFacade);
 		state.interactionLoop();
-		GameOutput.addGameText("You wake up in a dark room", false);
-		GameOutput.addGameText("Suddenly you are attacked", false);
-		state = new FightState(kobold, character);
-		state.interactionLoop();
+		
+		
 		
 		
 	}

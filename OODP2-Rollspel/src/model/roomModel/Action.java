@@ -1,17 +1,94 @@
 package model.roomModel;
 
-public enum Action {
-	Fight{
+import model.Factory.ActionBuilder;
+
+public enum Action implements Visitable, Executable {
+	
+	
+	
+	Fight("Fight!") {
+
+		@Override
+		public void accept(ActionBuilder actionBuilder) {
+			actionBuilder.visitFight(this);
+			
+		}
+
+		@Override
+		public void execute() {
+			// TODO Auto-generated method stub
+			
+		}
 		
-	}, goNorth{
+	}, goNorth("Go North") {
 		
-	}, goEast{
+
+		@Override
+		public void accept(ActionBuilder actionBuilder) {
+			actionBuilder.visit(this);
+			
+		}
 		
-	}, goWest{
+		public void execute() {
+			
+			
+		}
 		
-	}, goSouth{
 		
+	}, goEast("Go East") {
+
+		@Override
+		public void accept(ActionBuilder actionBuilder) {
+			actionBuilder.visit(this);
+			
+		}
+
+		@Override
+		public void execute() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}, goWest("Go West") {
+
+		@Override
+		public void accept(ActionBuilder actionBuilder) {
+			actionBuilder.visit(this);
+			
+		}
+
+		@Override
+		public void execute() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}, goSouth("Go South") {
+
+		@Override
+		public void accept(ActionBuilder actionBuilder) {
+			actionBuilder.visit(this);
+			
+		}
+
+		@Override
+		public void execute() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	};
+	private final String description;
+	
+	Action(String description) {
+		this.description = description;
 	}
-		
+	
+	public String getDescription() {
+		return description;
+	}
+
+
+
 	
 }

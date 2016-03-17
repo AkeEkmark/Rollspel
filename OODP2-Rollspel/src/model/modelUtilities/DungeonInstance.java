@@ -2,13 +2,16 @@ package model.modelUtilities;
 
 import java.util.List;
 import model.characterModel.Hero;
+import model.entitiesModel.Monster;
 import model.roomModel.Location;
+import model.roomModel.MonsterLocation;
 
 public class DungeonInstance implements LocationInstance {
 	private List<Location> dungeonMap;
 
 	private Hero character;
 	private int index = 0;
+	private Monster monster = null;
 	
 	public DungeonInstance(List<Location> dungeonMap, Hero character){
 		this.dungeonMap = dungeonMap;
@@ -32,5 +35,10 @@ public class DungeonInstance implements LocationInstance {
 
 	public Hero getCharacter() {
 		return character;
+	}
+
+	public Monster getMonster() {
+		MonsterLocation location = (MonsterLocation) getCurrentLocation();
+		return location.getMonster();
 	}
 }

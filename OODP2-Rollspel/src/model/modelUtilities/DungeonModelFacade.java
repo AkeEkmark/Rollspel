@@ -1,5 +1,8 @@
 package model.modelUtilities;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import model.characterModel.CharacterIsDeadException;
 import model.entitiesModel.Loot;
 import model.entitiesModel.Monster;
@@ -7,14 +10,17 @@ import model.entitiesModel.MonsterIsDeadException;
 import model.roomModel.Location;
 import model.characterModel.Hero;
 
-public class DungeonModelFacade implements ModelFacade {
+public class DungeonModelFacade extends Observable implements ModelFacade {
 	private DungeonInstance di;
 	
 	public DungeonModelFacade(DungeonInstance di){
 		this.di = di;
 	}
 	@Override
-	public void moveCharacter() {
+	public void moveCharacter(Location nextRoom) {
+		di.moveCharacter(nextRoom);
+		setChanged();
+		notifyObservers();
 
 	}
 
@@ -46,6 +52,16 @@ public class DungeonModelFacade implements ModelFacade {
 	@Override
 	public Location getLocation() {
 		return di.getCurrentLocation();
+	}
+
+	public void addObserver(Observer o) {
+
+		
+	}
+	@Override
+	public Monster getMonster() {
+		
+		return di.getMonster();
 	}
 
 }

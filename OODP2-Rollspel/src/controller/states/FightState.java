@@ -26,7 +26,7 @@ public class FightState implements StateInterface {
 				fight.execute();
 			} catch (MonsterIsDeadException e) {
 				GameOutput.addGameText("The monster is dead", false);
-				new DefaultState().interactionLoop();
+				
 				break;
 			} catch (CharacterIsDeadException e) {
 				new DefeatState().interactionLoop();

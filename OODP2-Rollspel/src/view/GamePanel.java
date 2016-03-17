@@ -19,7 +19,7 @@ public class GamePanel extends JPanel {
 		this.setBackground(Color.gray);
 		this.setLayout(new BorderLayout());
 		this.add(new GameOutputPanel(GameOutput.getInstance().getTextList()), BorderLayout.CENTER);
-		this.add(new GameButtonPanel(), BorderLayout.SOUTH);
+		this.add(new GameButtonPanel(modelFacade), BorderLayout.SOUTH);
 		this.add(new CharacterStatsPanel(modelFacade.getCharacter()), BorderLayout.NORTH);
 		
 	}

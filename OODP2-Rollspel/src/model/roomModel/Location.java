@@ -60,6 +60,10 @@ public abstract class Location {
 		return description;
 	}
 	
+	public List<Action> getAvailableActions() {
+		return availableActions;
+	}
+
 	protected void addAction(Action action) {
 		availableActions.add(action);
 	}
