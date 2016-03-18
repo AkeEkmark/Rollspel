@@ -7,7 +7,8 @@ public class Kobold extends Monster {
 		super.strength = 15;
 		super.Agility = 14;
 		super.intelligence = 3;
-		super.hitpoints = 15;
+		super.hitpoints = 1;
+		super.name = "Kobold";
 		
 	}
 }

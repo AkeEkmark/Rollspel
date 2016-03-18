@@ -1,5 +1,6 @@
 package model.roomModel;
 
+import controller.Command.MoveCommand;
 import model.Factory.ActionBuilder;
 
 public enum Action implements Visitable, Executable {
@@ -30,8 +31,8 @@ public enum Action implements Visitable, Executable {
 		}
 		
 		public void execute() {
-			
-			
+			MoveCommand move = new MoveCommand();
+			move.goNorth();
 		}
 		
 		
@@ -45,7 +46,8 @@ public enum Action implements Visitable, Executable {
 
 		@Override
 		public void execute() {
-			// TODO Auto-generated method stub
+			MoveCommand move = new MoveCommand();
+			move.goEast();
 			
 		}
 		
@@ -59,7 +61,8 @@ public enum Action implements Visitable, Executable {
 
 		@Override
 		public void execute() {
-			// TODO Auto-generated method stub
+			MoveCommand move = new MoveCommand();
+			move.goWest();
 			
 		}
 		

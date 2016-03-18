@@ -28,8 +28,7 @@ public class GameButtonPanel extends JPanel implements Observer {
 		actionBuilder = new ActionBuilder(this);
 		modelFacade.addObserver(this);
 		location = modelFacade.getLocation();
-		addButtons(location.getAvailableActions());
-		
+		addButtons(location.getAvailableActions());	
 	}
 
 	@Override
@@ -43,11 +42,12 @@ public class GameButtonPanel extends JPanel implements Observer {
 		for(Action a : availableActions) {
 			a.accept(actionBuilder);
 		}
-		
+		repaint();
 	}
 
 	private void removeButtons() {
 		removeAll();
+		repaint();
 		
 	}
 	

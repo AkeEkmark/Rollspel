@@ -21,6 +21,8 @@ public interface ModelFacade  {
 	public Location getLocation();
 	public void addObserver(Observer o);
 	public Monster getMonster();
+	public boolean monsterIsAlive();
+	public void MonsterIsSlain();
 	
 	
 }

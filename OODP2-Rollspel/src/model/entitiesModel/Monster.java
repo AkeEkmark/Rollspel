@@ -1,7 +1,5 @@
 package model.entitiesModel;
 
-import model.characterModel.CharacterIsDeadException;
-
 public abstract class Monster {
 
 	protected int strength;
@@ -9,6 +7,7 @@ public abstract class Monster {
 	protected int intelligence;
 	protected int Agility;
 	protected String description;
+	protected String name;
 	
 	public Monster(String description){
 		this.description = description;
@@ -37,5 +36,8 @@ public abstract class Monster {
 		if (hitpoints <= 0){
 			throw new MonsterIsDeadException();
 		}
+	}
+	public String getName() {
+		return name;
 	}
 }

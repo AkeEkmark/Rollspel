@@ -40,6 +40,7 @@ public class CharacterStatsPanel extends JPanel implements Observer{
 		name.setText("Name : "+character.getName());
 		hitpoints.setText("Hitpoints : "+character.getHitpoints());
 		strengthNbr.setText(""+character.getStrength());
+		repaint();
 		
 	}
 

@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,6 +8,8 @@ import javax.swing.JButton;
 import model.roomModel.Action;
 
 public class ActionButton extends JButton {
+
+	private static final long serialVersionUID = 8539253817922194600L;
 	Action action;
 
 	public ActionButton(Action action, String description) {

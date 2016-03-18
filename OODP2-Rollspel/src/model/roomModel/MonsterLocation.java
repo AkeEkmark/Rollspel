@@ -14,5 +14,7 @@ public class MonsterLocation extends LocationDecorator {
 	public Monster getMonster() {
 		return monster;
 	}
+	
+	
 
 }

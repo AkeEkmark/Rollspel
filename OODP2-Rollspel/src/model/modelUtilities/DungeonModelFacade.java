@@ -1,7 +1,6 @@
 package model.modelUtilities;
 
 import java.util.Observable;
-import java.util.Observer;
 
 import model.characterModel.CharacterIsDeadException;
 import model.entitiesModel.Loot;
@@ -19,6 +18,7 @@ public class DungeonModelFacade extends Observable implements ModelFacade {
 	@Override
 	public void moveCharacter(Location nextRoom) {
 		di.moveCharacter(nextRoom);
+		System.out.println(getLocation().getDescription());
 		setChanged();
 		notifyObservers();
 
@@ -54,14 +54,20 @@ public class DungeonModelFacade extends Observable implements ModelFacade {
 		return di.getCurrentLocation();
 	}
 
-	public void addObserver(Observer o) {
-
-		
-	}
 	@Override
 	public Monster getMonster() {
-		
 		return di.getMonster();
+	}
+	@Override
+	public boolean monsterIsAlive() {
+		if(getMonster().getHitpoints() > 0) {
+			return true;
+		}
+		return false;
+	}
+	@Override
+	public void MonsterIsSlain() {
+		di.removeFightAction();
 	}
 
 }

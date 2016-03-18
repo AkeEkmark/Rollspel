@@ -3,12 +3,14 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.Facade;
 import controller.GameOutput;
 import controller.states.DefaultState;
 import controller.states.FightState;
 import controller.states.StateInterface;
 import model.characterModel.Hero;
 import model.characterModel.Warrior;
+import model.entitiesModel.DarkDemonLord;
 import model.entitiesModel.Kobold;
 import model.entitiesModel.Monster;
 import model.modelUtilities.DungeonInstance;
@@ -31,15 +33,20 @@ public class MainApp {
 		Location secondRoom = new DungeonLocation("A room filled with treasure");
 		firstRoom.setNorthExit(secondRoom);
 		dungeonMap.add(secondRoom);
+		Location thirdRoom = new DungeonLocation("Endboss room");
+		thirdRoom = new MonsterLocation(thirdRoom, new DarkDemonLord("The end boss"));
+		secondRoom.setEastExit(thirdRoom);
+		dungeonMap.add(thirdRoom);
+		Location fourthRoom = new DungeonLocation("A black hole");
+		secondRoom.setWestExit(fourthRoom);
+		dungeonMap.add(fourthRoom);
 		DungeonInstance di = new DungeonInstance(dungeonMap, character);
 		ModelFacade modelFacade = new DungeonModelFacade(di);
+		Facade facade = new Facade(modelFacade);
 		Gui gui = new Gui(modelFacade);
 		StateInterface state = new DefaultState(modelFacade);
+		state.setDefaultState(state);
 		state.interactionLoop();
-		
-		
-		
-		
 	}
 
 }

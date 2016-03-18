@@ -45,7 +45,7 @@ public class GameOutputPanel extends JPanel implements Observer {
 		String s = gameText.getS();
 		textArea.append(s+"\n");
 		textArea.setCaretPosition(textArea.getDocument().getLength());
-		
+		repaint();
 		
 		
 	}

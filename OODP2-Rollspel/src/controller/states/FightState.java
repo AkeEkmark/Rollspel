@@ -6,16 +6,18 @@ import model.characterModel.Hero;
 import model.characterModel.CharacterIsDeadException;
 import model.entitiesModel.Monster;
 import model.entitiesModel.MonsterIsDeadException;
+import model.modelUtilities.ModelFacade;
 
 public class FightState implements StateInterface {
 	Monster monster;
 	Hero character;
+	ModelFacade modelFacade;
+	private StateInterface defaultState;
 
-	
-	public FightState(Monster monster, Hero character) {
-		this.monster = monster;
-		this.character = character;
-				
+	public FightState(ModelFacade modelFacade) {
+		this.modelFacade = modelFacade;
+		this.monster = modelFacade.getMonster();
+		this.character = modelFacade.getCharacter();
 	}
 
 	@Override
@@ -26,19 +28,32 @@ public class FightState implements StateInterface {
 				fight.execute();
 			} catch (MonsterIsDeadException e) {
 				GameOutput.addGameText("The monster is dead", false);
+				modelFacade.MonsterIsSlain();
+				changeState(defaultState);
+				
 				
 				break;
 			} catch (CharacterIsDeadException e) {
-				new DefeatState().interactionLoop();
+				changeState(new DefeatState());
 				break;
 			}
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		}
+	}
+
+	@Override
+	public void changeState(StateInterface state) {
+		state.interactionLoop();
+	}
+	@Override
+	public void setDefaultState(StateInterface state) {
+		this.defaultState = state;
+		
 	}
 
 }
