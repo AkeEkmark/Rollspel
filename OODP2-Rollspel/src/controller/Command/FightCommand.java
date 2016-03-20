@@ -45,7 +45,8 @@ public class FightCommand implements CommandInterface {
 		int heroTmp = 0;
 		int villainTmp = 0;
 		int gap = 0;
-		heroTmp = d10.roll()+hero.getStrength();
+		int modifier = hero.getInventory().getWeapon().getModifier();
+		heroTmp = d10.roll()+hero.getStrength()+modifier;
 		villainTmp = d10.roll()+villain.getStrength();
 		gap = villainTmp - heroTmp;
 		if(gap>0){
@@ -59,7 +60,8 @@ public class FightCommand implements CommandInterface {
 		int heroTmp = 0;
 		int villainTmp = 0;
 		int gap = 0;
-		heroTmp = d10.roll()+hero.getStrength();
+		int modifier = hero.getInventory().getWeapon().getModifier();
+		heroTmp = d10.roll()+hero.getStrength()+modifier;
 		villainTmp = d10.roll()+villain.getStrength();
 		gap = heroTmp - villainTmp;
 		if(gap>0){

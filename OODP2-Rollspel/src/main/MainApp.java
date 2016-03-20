@@ -3,6 +3,7 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.DungeonLocationBuilder;
 import controller.Facade;
 import controller.GameOutput;
 import controller.states.DefaultState;
@@ -10,6 +11,7 @@ import controller.states.FightState;
 import controller.states.StateInterface;
 import model.characterModel.Hero;
 import model.characterModel.Warrior;
+import model.entitiesModel.Dagger;
 import model.entitiesModel.DarkDemonLord;
 import model.entitiesModel.Kobold;
 import model.entitiesModel.Monster;
@@ -24,20 +26,20 @@ import view.Gui;
 public class MainApp {
 
 	public static void main(String[] args) {
+		DungeonLocationBuilder dlb = new DungeonLocationBuilder();
 		Hero character = new Warrior("Uffe");
+		character.getInventory().setWeapon(new Dagger());
 		Monster kobold = new Kobold("A nasty Kobold with a candle on his head");
-		Location firstRoom = new DungeonLocation("A dark and smelly room with an aura of death and you see an exit to the north");
-		firstRoom = new MonsterLocation(firstRoom, kobold);
+		Location firstRoom = dlb.buildLocation("A dark and smelly room with an aura of death and you see an exit to the north", kobold, null);
 		List<Location> dungeonMap = new ArrayList<Location>();
 		dungeonMap.add(firstRoom);
-		Location secondRoom = new DungeonLocation("A room filled with treasure");
+		Location secondRoom = dlb.buildLocation("A room filled with treasure", null, null);
 		firstRoom.setNorthExit(secondRoom);
 		dungeonMap.add(secondRoom);
-		Location thirdRoom = new DungeonLocation("Endboss room");
-		thirdRoom = new MonsterLocation(thirdRoom, new DarkDemonLord("The end boss"));
+		Location thirdRoom = dlb.buildLocation("Endboss room", new DarkDemonLord("The end boss"), null);
 		secondRoom.setEastExit(thirdRoom);
 		dungeonMap.add(thirdRoom);
-		Location fourthRoom = new DungeonLocation("A black hole");
+		Location fourthRoom = dlb.buildLocation("A black hole", null, null);
 		secondRoom.setWestExit(fourthRoom);
 		dungeonMap.add(fourthRoom);
 		DungeonInstance di = new DungeonInstance(dungeonMap, character);
