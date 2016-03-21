@@ -4,5 +4,6 @@ public class Zweihander extends Weapon {
 	
 	public Zweihander(){
 		super.modifier = 2;
+		super.name = "Zweihander";
 	}
 }	
