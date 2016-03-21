@@ -8,6 +8,6 @@ public class Scholar extends Hero{
 		super.intelligence = 15;
 		super.hitpoints = 30;
 		super.maxHitpoints = 30;
-		super.inventory = new Inventory();
+		
 	}
 }
