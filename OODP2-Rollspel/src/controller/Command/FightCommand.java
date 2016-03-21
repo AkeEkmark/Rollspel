@@ -10,7 +10,7 @@ import model.characterModel.Hero;
 import model.characterModel.CharacterIsDeadException;
 
 public class FightCommand implements CommandInterface {
-	private Die d10 = new Die(10);
+	private Die d20 = new Die(20);
 	private Hero hero;
 	private Monster villain;
 	private FightTable ft = new NormalFightTable();
@@ -45,23 +45,29 @@ public class FightCommand implements CommandInterface {
 		int heroTmp = 0;
 		int villainTmp = 0;
 		int gap = 0;
-		int modifier = hero.getInventory().getWeapon().getModifier();
-		heroTmp = d10.roll()+hero.getStrength()+modifier;
+		int weaponModifier = hero.getInventory().getWeapon().getModifier();
+		int armourModifier = hero.getInventory().getArmour().getModifier();
+		heroTmp = d10.roll()+hero.getStrength()+weaponModifier;
 		villainTmp = d10.roll()+villain.getStrength();
 		gap = villainTmp - heroTmp;
+		int dmgTmp = ft.hitPointsFromGap(gap) - armourModifier;
 		if(gap>0){
-			GameOutput.addGameText("You where hit by the nasty kobold! His nasty strike wounds for "+ft.hitPointsFromGap(gap) + " hitpoints", false);
+			if(ft.hitPointsFromGap(gap) < armourModifier){
+				GameOutput.addGameText("The kobold strikes but your armour absorbs the blow completely", false);
+			} else{
+				GameOutput.addGameText("You where hit by the nasty kobold! His nasty strike wounds for "+dmgTmp + " hitpoints and your armour absorbs "+ armourModifier, false);
+				hero.removeHitpoints(dmgTmp);
+		}
 		} else{
 			GameOutput.addGameText("the kobold misses your body and hisses in anger", false);
 		}
-		hero.removeHitpoints(ft.hitPointsFromGap(gap));
-		}
+	}
 	private void characterStrike() throws MonsterIsDeadException {
 		int heroTmp = 0;
 		int villainTmp = 0;
 		int gap = 0;
-		int modifier = hero.getInventory().getWeapon().getModifier();
-		heroTmp = d10.roll()+hero.getStrength()+modifier;
+		int weaponModifier = hero.getInventory().getWeapon().getModifier();
+		heroTmp = d10.roll()+hero.getStrength()+weaponModifier;
 		villainTmp = d10.roll()+villain.getStrength();
 		gap = heroTmp - villainTmp;
 		if(gap>0){

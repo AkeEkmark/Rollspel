@@ -2,40 +2,44 @@ package controller;
 
 import model.entitiesModel.Loot;
 import model.entitiesModel.Monster;
+import model.entitiesModel.Trap;
 import model.roomModel.DungeonLocation;
 import model.roomModel.Location;
+import model.roomModel.LootLocation;
 import model.roomModel.MonsterLocation;
+import model.roomModel.TrapLocation;
 
 public class DungeonLocationBuilder extends LocationBuilder {
-	private Monster monster;
-	private Loot loot;
-	private String description;
 	private Location location;
-	
 
 	@Override
-	public Location buildLocation(String description, Monster monster, Loot loot) {
-		this.monster = monster;
-		this.loot = loot;
-		this.description = description;
+	public Location buildLocation(String description, Monster monster, Loot loot, Trap trap) {
 		this.location = new DungeonLocation(description);
-		if(monster != null)
+		if (monster != null)
 			addMonster(monster);
-		if(loot != null)
+		if (loot != null)
 			addLoot(loot);
+		if (trap != null)
+			addTrap(trap);
 		return location;
 
 	}
 
 	@Override
 	public void addMonster(Monster monster) {
-	location = new MonsterLocation(location, monster);
+		location = new MonsterLocation(location, monster);
 
 	}
 
 	@Override
 	public void addLoot(Loot loot) {
-	
+		location = new LootLocation(location, loot);
+
+	}
+
+	@Override
+	public void addTrap(Trap trap) {
+		location = new TrapLocation(location, trap);
 
 	}
 

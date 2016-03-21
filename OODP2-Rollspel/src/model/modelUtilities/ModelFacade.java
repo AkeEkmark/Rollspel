@@ -6,6 +6,7 @@ import model.characterModel.CharacterIsDeadException;
 import model.entitiesModel.Loot;
 import model.entitiesModel.Monster;
 import model.entitiesModel.MonsterIsDeadException;
+import model.entitiesModel.Trap;
 import model.roomModel.Location;
 import model.characterModel.Hero;
 
@@ -23,6 +24,7 @@ public interface ModelFacade  {
 	public Monster getMonster();
 	public boolean monsterIsAlive();
 	public void MonsterIsSlain();
+	public Trap getTrap();
 	
 	
 }
