@@ -37,8 +37,8 @@ public class FightCommand implements CommandInterface {
 	private int agilityCheck() {
 		int heroTmp = 0;
 		int villainTmp = 0;
-		heroTmp = d10.roll()+hero.getAgility();
-		villainTmp = d10.roll()+villain.getAgility();
+		heroTmp = d20.roll()+hero.getAgility();
+		villainTmp = d20.roll()+villain.getAgility();
 		return heroTmp - villainTmp;
 	}
 	private void monsterStrike() throws CharacterIsDeadException {
@@ -47,8 +47,8 @@ public class FightCommand implements CommandInterface {
 		int gap = 0;
 		int weaponModifier = hero.getInventory().getWeapon().getModifier();
 		int armourModifier = hero.getInventory().getArmour().getModifier();
-		heroTmp = d10.roll()+hero.getStrength()+weaponModifier;
-		villainTmp = d10.roll()+villain.getStrength();
+		heroTmp = d20.roll()+hero.getStrength()+weaponModifier;
+		villainTmp = d20.roll()+villain.getStrength();
 		gap = villainTmp - heroTmp;
 		int dmgTmp = ft.hitPointsFromGap(gap) - armourModifier;
 		if(gap>0){
@@ -67,8 +67,8 @@ public class FightCommand implements CommandInterface {
 		int villainTmp = 0;
 		int gap = 0;
 		int weaponModifier = hero.getInventory().getWeapon().getModifier();
-		heroTmp = d10.roll()+hero.getStrength()+weaponModifier;
-		villainTmp = d10.roll()+villain.getStrength();
+		heroTmp = d20.roll()+hero.getStrength()+weaponModifier;
+		villainTmp = d20.roll()+villain.getStrength();
 		gap = heroTmp - villainTmp;
 		if(gap>0){
 			GameOutput.addGameText("You strike the kobold so hard his candle flies through the air and he loses "+ ft.hitPointsFromGap(gap) + " hitpoints", false);
