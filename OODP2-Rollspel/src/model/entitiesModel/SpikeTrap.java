@@ -18,7 +18,6 @@ public class SpikeTrap extends Trap {
 	}
 	@Override
 	public boolean hasTriggered() {
-		
 		return hasTriggered;
 	}
 	@Override

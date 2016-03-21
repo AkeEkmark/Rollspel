@@ -28,7 +28,7 @@ public class FightState implements StateInterface {
 				fight.execute();
 			} catch (MonsterIsDeadException e) {
 				GameOutput.addGameText("The monster is dead", false);
-				modelFacade.MonsterIsSlain();
+				modelFacade.monsterIsSlain();
 				changeState(defaultState);
 				
 				

@@ -6,6 +6,7 @@ import model.entitiesModel.Monster;
 import model.entitiesModel.Trap;
 import model.roomModel.Location;
 import model.roomModel.MonsterLocation;
+import model.roomModel.TrapLocation;
 
 public class DungeonInstance implements LocationInstance {
 	private List<Location> dungeonMap;

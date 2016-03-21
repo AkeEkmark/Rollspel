@@ -23,8 +23,9 @@ public interface ModelFacade  {
 	public void addObserver(Observer o);
 	public Monster getMonster();
 	public boolean monsterIsAlive();
-	public void MonsterIsSlain();
+	public void monsterIsSlain();
 	public Trap getTrap();
+	public boolean trapHasTriggerd();
 	
 	
 }

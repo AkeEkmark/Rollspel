@@ -93,6 +93,19 @@ public enum Action implements Visitable, Executable {
 			// TODO Auto-generated method stub
 			
 		}
+	}, Trap("TRAP"){
+		@Override
+		public void accept(ActionBuilder actionBuilder) {
+			actionBuilder.visit(this);
+			
+		}
+
+		@Override
+		public void execute() {
+			// TODO Auto-generated method stub
+			
+		}
+		
 	};
 	private final String description;
 	

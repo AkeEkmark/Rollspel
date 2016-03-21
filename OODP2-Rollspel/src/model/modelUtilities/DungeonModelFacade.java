@@ -67,12 +67,15 @@ public class DungeonModelFacade extends Observable implements ModelFacade {
 		return false;
 	}
 	@Override
-	public void MonsterIsSlain() {
+	public void monsterIsSlain() {
 		di.removeFightAction();
 	}
 	@Override
 	public Trap getTrap() {
 		return di.getTrap();
+	}
+	public boolean trapHasTriggered(){
+		return getTrap().hasTriggered();
 	}
 
 }

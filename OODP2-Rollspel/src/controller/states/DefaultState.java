@@ -30,6 +30,13 @@ public class DefaultState implements StateInterface, Observer {
 				changeState(fight);		
 			}
 		}
+		if(location.getAvailableActions().contains(Action.Trap)){
+			if(!modelFacade.trapHasTriggerd()){
+				TrapState trap = new TrapState(modelFacade);
+				trap.setDefaultState(defaultState);
+				changeState(trap);
+			}
+		}
 	}
 	@Override
 	public void changeState(StateInterface state) {

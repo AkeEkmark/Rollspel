@@ -8,6 +8,7 @@ public class TrapLocation extends LocationDecorator {
 	public TrapLocation(Location location, Trap trap) {
 		super(location);
 		this.trap = trap;
+		addAction(Action.Trap);
 	}
 
 	public Trap getTrap() {
