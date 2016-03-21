@@ -14,6 +14,8 @@ public abstract class Hero extends Observable {
 
 	public Hero(String name){
 		this.name = name;
+		this.inventory =  new Inventory();
+		
 	}
 	public String getName() {
 		return name;
