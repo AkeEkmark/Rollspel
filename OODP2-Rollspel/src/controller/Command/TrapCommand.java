@@ -1,5 +1,6 @@
 package controller.Command;
 
+import controller.GameOutput;
 import model.characterModel.CharacterIsDeadException;
 import model.characterModel.Hero;
 import model.entitiesModel.MonsterIsDeadException;
@@ -16,8 +17,19 @@ public class TrapCommand implements CommandInterface {
 	}
 	@Override
 	public void execute() throws MonsterIsDeadException, CharacterIsDeadException {
-		
+		GameOutput.addGameText("A number of spikes shoot out from the floor", false);
+		trapTriggered();
 
 	}
-
+	private void trapTriggered() throws CharacterIsDeadException{
+		int heroTmp = d20.roll() + hero.getAgility();
+		int trapTmp = trap.getDifficulty();
+		if(heroTmp > trapTmp){
+			GameOutput.addGameText("You barely manage to dodge away from the spikes", false);
+		} else{
+			GameOutput.addGameText("With no chance to react to the spikes they penetrate your body dealing " +trap.getdamage() +" damage", false);
+			hero.removeHitpoints(trap.getdamage());
+		}
+		trap.setTriggered();
+	}
 }

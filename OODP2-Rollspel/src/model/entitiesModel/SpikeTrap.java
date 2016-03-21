@@ -5,6 +5,7 @@ public class SpikeTrap extends Trap {
 	public SpikeTrap(){
 		super.damage = 10;
 		super.difficulty = 25;
+		super.hasTriggered = false;
 	}
 	@Override
 	public int getDifficulty() {
@@ -14,6 +15,16 @@ public class SpikeTrap extends Trap {
 	@Override
 	public int getdamage() {
 		return damage;
+	}
+	@Override
+	public boolean hasTriggered() {
+		
+		return hasTriggered;
+	}
+	@Override
+	public void setTriggered() {
+		hasTriggered = !hasTriggered;
+		
 	}
 
 }
