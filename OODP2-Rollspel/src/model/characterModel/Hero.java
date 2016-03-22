@@ -7,8 +7,9 @@ public abstract class Hero extends Observable {
 	protected String name;
 	protected int strength;
 	protected int hitpoints;
+	protected boolean sixthSense = false;
 	protected int intelligence;
-	protected int Agility;
+	protected int agility;
 	protected int maxHitpoints;
 	protected Inventory inventory;
 
@@ -34,7 +35,7 @@ public abstract class Hero extends Observable {
 	}
 	
 	public int getAgility() {
-		return Agility;
+		return agility;
 	}
 	
 	public int getMaxHitpoints() {
