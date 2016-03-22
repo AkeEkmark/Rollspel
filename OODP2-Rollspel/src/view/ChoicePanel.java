@@ -1,25 +1,24 @@
 package view;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
 import controller.Facade;
 
 public class ChoicePanel extends JPanel implements ActionListener {
 	private Facade facade;
 	private NamePanel namePanel;
-	ClassPanel classPanel;
+	private ClassPanel classPanel;
+	private Gui gui;
 
 	private static final long serialVersionUID = 8049779219317678941L;
 
-	public ChoicePanel(Facade facade) {
+	public ChoicePanel(Facade facade, Gui gui) {
 		super();
 		this.setVisible(true);
 		this.facade = facade;
+		this.gui = gui;
 		add(new InformationPanel());
 		namePanel = new NamePanel();
 		add(namePanel);
@@ -34,8 +33,8 @@ public class ChoicePanel extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		facade.createChar(namePanel.getCharName(), classPanel.getSelectedClass());
-		
-		
+		gui.start();
+		this.setVisible(false);
 	}
 
 }

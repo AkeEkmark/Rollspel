@@ -7,6 +7,7 @@ import controller.Facade;
 public class StartFrame extends JFrame {
 
 	private static final long serialVersionUID = -6184805931775692675L;
+	private ChoicePanel choicePanel;
 
 	public StartFrame(Facade facade, Gui gui) {
 		super();
@@ -15,7 +16,8 @@ public class StartFrame extends JFrame {
 		this.setName("Rollspel");
 		this.setSize(400, 400);
 		this.setLocationRelativeTo(gui);
-		this.add(new ChoicePanel(facade));
+		choicePanel = new ChoicePanel(facade, gui);
+		this.add(choicePanel);
 		repaint();
 	}
 }
