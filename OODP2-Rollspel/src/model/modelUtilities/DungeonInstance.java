@@ -45,8 +45,7 @@ public class DungeonInstance implements LocationInstance {
 	}
 
 	public Monster getMonster() {
-		MonsterLocation location = (MonsterLocation) getCurrentLocation();
-		return location.getMonster();
+		return getCurrentLocation().getMonster();
 	}
 
 	public void removeFightAction() {
@@ -55,8 +54,7 @@ public class DungeonInstance implements LocationInstance {
 	}
 
 	public Trap getTrap() {
-		TrapLocation location = (TrapLocation) getCurrentLocation();
-		return location.getTrap();
+		return getCurrentLocation().getTrap();
 	}
 
 }

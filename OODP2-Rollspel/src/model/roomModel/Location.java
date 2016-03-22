@@ -3,7 +3,11 @@ package model.roomModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Location {
+import model.entitiesModel.Loot;
+import model.entitiesModel.Monster;
+import model.entitiesModel.Trap;
+
+public abstract class Location implements LocationInterface {
 	protected String description;
 	protected Location northExit;
 	protected Location eastExit;
@@ -64,9 +68,23 @@ public abstract class Location {
 		return availableActions;
 	}
 
-	protected void addAction(Action action) {
+	public void addAction(Action action) {
 		availableActions.add(action);
 	}
 	
-	
+	public String toString() {
+		return "<Location>";
+	}
+	public Monster getMonster(){
+		return null;
+		
+	}
+	public Trap getTrap(){
+		return null;
+		
+	}
+	public Loot getLoot(){
+		return null;
+		
+	}
 }

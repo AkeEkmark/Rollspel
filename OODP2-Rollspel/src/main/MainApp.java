@@ -36,6 +36,7 @@ public class MainApp {
 		character.getInventory().addPotion(new HealingPotion(5));
 		Monster kobold = new Kobold("A nasty Kobold with a candle on his head");
 		Location firstRoom = dlb.buildLocation("A dark and smelly room with an aura of death and you see an exit to the north", kobold, null, new SpikeTrap());
+		System.out.println(firstRoom);
 		System.out.println(firstRoom.getAvailableActions());
 		List<Location> dungeonMap = new ArrayList<Location>();
 		dungeonMap.add(firstRoom);
@@ -53,6 +54,7 @@ public class MainApp {
 		ModelFacade modelFacade = new DungeonModelFacade(di);
 		Facade facade = new Facade(modelFacade);
 		Gui gui = new Gui(modelFacade, facade);
+		gui.start();
 		StateInterface state = new DefaultState(modelFacade);
 		state.setDefaultState(state);
 		state.interactionLoop();
