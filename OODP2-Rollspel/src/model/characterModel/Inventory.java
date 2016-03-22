@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Observable;
 
 import model.entitiesModel.Armour;
+import model.entitiesModel.Loot;
 import model.entitiesModel.Potion;
 import model.entitiesModel.Weapon;
 
@@ -25,13 +26,13 @@ public class Inventory extends Observable{
 	public List<Potion> getPotions() {
 		return Potions;
 	}
-	public void setWeapon(Weapon weapon) {
-		this.weapon = weapon;
+	public void setWeapon(Loot weapon) {
+		this.weapon = (Weapon) weapon;
 	}
-	public void setArmour(Armour armour) {
-		this.armour = armour;
+	public void setArmour(Loot armour) {
+		this.armour = (Armour) armour;
 	}
-	public void addPotion(Potion potion) {
-		Potions.add(potion);
+	public void addPotion(Loot potion) {
+		Potions.add((Potion)potion);
 	}
 }

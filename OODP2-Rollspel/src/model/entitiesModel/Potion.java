@@ -11,5 +11,18 @@ public abstract class Potion implements Loot{
 
 	@Override
 	public abstract String getName();
+	
+	@Override
+	public boolean isWeapon() {
+		return false;
+	}
+	@Override
+	public boolean isArmour() {
+		return false;
+	}
+	@Override
+	public boolean isPotion() {
+		return true;
+	}
 
 }

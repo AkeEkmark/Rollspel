@@ -14,7 +14,6 @@ import model.characterModel.Hero;
 public interface ModelFacade  {
 
 	public void moveCharacter(Location nextRoom);
-	public void loot(Loot loot);
 	public void removeHitpointsFromCharacter(int hitPoints) throws CharacterIsDeadException;
 	public void removeHitpointsFromMonster(int hitPoints, Monster monster) throws MonsterIsDeadException;
 	public void addHitpointsToCharacter(int hitPoints);
@@ -26,6 +25,7 @@ public interface ModelFacade  {
 	public void monsterIsSlain();
 	public Trap getTrap();
 	public boolean trapHasTriggered();
+	public void loot(Loot loot);
 	
 	
 }

@@ -19,5 +19,17 @@ public class Weapon implements Loot {
 		hasBeenLooted = true;
 		
 	}
+	@Override
+	public boolean isWeapon() {
+		return true;
+	}
+	@Override
+	public boolean isArmour() {
+		return false;
+	}
+	@Override
+	public boolean isPotion() {
+		return false;
+	}
 	
 }

@@ -1,7 +1,10 @@
 package model.roomModel;
 
+import controller.Command.LootCommand;
 import controller.Command.MoveCommand;
 import model.Factory.ActionBuilder;
+import model.characterModel.CharacterIsDeadException;
+import model.entitiesModel.MonsterIsDeadException;
 
 public enum Action implements Visitable, Executable {
 	
@@ -89,8 +92,9 @@ public enum Action implements Visitable, Executable {
 		}
 
 		@Override
-		public void execute() {
-			// TODO Auto-generated method stub
+		public void execute()  {
+			LootCommand loot = new LootCommand();
+			loot.execute();
 			
 		}
 	}, Trap("Trap"){

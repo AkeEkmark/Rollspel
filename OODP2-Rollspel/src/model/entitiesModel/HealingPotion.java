@@ -23,4 +23,16 @@ public class HealingPotion extends Potion {
 	public String getName() {
 		return name;
 	}
+	@Override
+	public boolean isWeapon() {
+		return false;
+	}
+	@Override
+	public boolean isArmour() {
+		return false;
+	}
+	@Override
+	public boolean isPotion() {
+		return true;
+	}
 }

@@ -3,10 +3,13 @@ package model.modelUtilities;
 import java.util.Observable;
 
 import model.characterModel.CharacterIsDeadException;
+import model.entitiesModel.Armour;
 import model.entitiesModel.Loot;
 import model.entitiesModel.Monster;
 import model.entitiesModel.MonsterIsDeadException;
+import model.entitiesModel.Potion;
 import model.entitiesModel.Trap;
+import model.entitiesModel.Weapon;
 import model.roomModel.Location;
 import model.characterModel.Hero;
 
@@ -22,11 +25,6 @@ public class DungeonModelFacade extends Observable implements ModelFacade {
 		System.out.println(getLocation().getDescription());
 		setChanged();
 		notifyObservers();
-
-	}
-
-	@Override
-	public void loot(Loot loot) {
 
 	}
 
@@ -78,6 +76,15 @@ public class DungeonModelFacade extends Observable implements ModelFacade {
 		return getTrap().hasTriggered();
 	}
 
-
+	@Override
+	public void loot(Loot loot) {
+		if (loot.isWeapon()) {
+			getCharacter().getInventory().setWeapon(loot);
+		} else if (loot.isArmour()) {
+			getCharacter().getInventory().setArmour(loot);
+		} else {
+			getCharacter().getInventory().addPotion(loot);
+		}
+	}
 
 }

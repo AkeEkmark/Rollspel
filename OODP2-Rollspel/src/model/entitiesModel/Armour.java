@@ -19,4 +19,16 @@ public class Armour implements Loot {
 		hasBeenLooted = true;
 		
 	}
+	@Override
+	public boolean isWeapon() {
+		return false;
+	}
+	@Override
+	public boolean isArmour() {
+		return true;
+	}
+	@Override
+	public boolean isPotion() {
+		return false;
+	}
 }

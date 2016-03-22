@@ -1,13 +1,20 @@
 package controller.Command;
 
-import model.characterModel.CharacterIsDeadException;
-import model.entitiesModel.MonsterIsDeadException;
+import controller.Facade;
+import model.modelUtilities.ModelFacade;
+import model.roomModel.Location;
 
 public class LootCommand implements CommandInterface {
-
+	private ModelFacade modelFacade;
+	private Location currentLoc;
+	
+	public LootCommand() {
+		this.modelFacade = Facade.getModel();
+		currentLoc = modelFacade.getLocation();
+	}
 	@Override
-	public void execute() throws MonsterIsDeadException, CharacterIsDeadException {
-		// TODO Auto-generated method stub
+	public void execute()  {
+		modelFacade.loot(currentLoc.getLoot());
 
 	}
 
