@@ -21,22 +21,21 @@ public class TrapState implements StateInterface {
 
 	@Override
 	public void interactionLoop() {
+		System.out.println("TrapState "+this);
 		if(!trap.hasTriggered()){
 			TrapCommand t = new TrapCommand(character, trap);
-			try {
+			
 				try {
 					t.execute();
 				} catch (MonsterIsDeadException e) {
 					e.printStackTrace();
-				}
-	
-			} catch (CharacterIsDeadException e) {
+					return;
+				} catch (CharacterIsDeadException e) {
 				changeState(new DefeatState());
-			}
-			
-		} else{
+					return;
+		}} 
 			changeState(defaultState);
-		}
+		
 
 	}
 

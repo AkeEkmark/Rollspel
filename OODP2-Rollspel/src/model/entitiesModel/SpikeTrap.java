@@ -22,7 +22,7 @@ public class SpikeTrap extends Trap {
 	}
 	@Override
 	public void setTriggered() {
-		hasTriggered = !hasTriggered;
+		hasTriggered = true;
 		
 	}
 

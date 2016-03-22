@@ -31,7 +31,7 @@ public class DefaultState implements StateInterface, Observer {
 			}
 		}
 		if(location.getAvailableActions().contains(Action.Trap)){
-			if(!modelFacade.trapHasTriggerd()){
+			if(!modelFacade.trapHasTriggered()){
 				TrapState trap = new TrapState(modelFacade);
 				trap.setDefaultState(defaultState);
 				changeState(trap);

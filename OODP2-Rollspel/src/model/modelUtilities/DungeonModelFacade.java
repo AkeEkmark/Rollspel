@@ -77,10 +77,7 @@ public class DungeonModelFacade extends Observable implements ModelFacade {
 	public boolean trapHasTriggered(){
 		return getTrap().hasTriggered();
 	}
-	@Override
-	public boolean trapHasTriggerd() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
+
 
 }

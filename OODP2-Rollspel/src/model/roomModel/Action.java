@@ -11,7 +11,7 @@ public enum Action implements Visitable, Executable {
 
 		@Override
 		public void accept(ActionBuilder actionBuilder) {
-			actionBuilder.visitFight(this);
+		
 			
 		}
 
@@ -93,11 +93,22 @@ public enum Action implements Visitable, Executable {
 			// TODO Auto-generated method stub
 			
 		}
-	}, Trap("TRAP"){
+	}, Trap("Trap"){
 		@Override
 		public void accept(ActionBuilder actionBuilder) {
-			actionBuilder.visit(this);
+	
+		}
+
+		@Override
+		public void execute() {
+			// TODO Auto-generated method stub
 			
+		}
+		
+	}, Quest("quest"){
+		@Override
+		public void accept(ActionBuilder actionBuilder) {
+	
 		}
 
 		@Override
@@ -107,6 +118,7 @@ public enum Action implements Visitable, Executable {
 		}
 		
 	};
+	
 	private final String description;
 	
 	Action(String description) {

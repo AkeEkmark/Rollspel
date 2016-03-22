@@ -25,7 +25,7 @@ public interface ModelFacade  {
 	public boolean monsterIsAlive();
 	public void monsterIsSlain();
 	public Trap getTrap();
-	public boolean trapHasTriggerd();
+	public boolean trapHasTriggered();
 	
 	
 }

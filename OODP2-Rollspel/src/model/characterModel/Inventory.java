@@ -1,5 +1,6 @@
 package model.characterModel;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
@@ -12,6 +13,9 @@ public class Inventory extends Observable{
 	private Weapon weapon;
 	private Armour armour;
 	private List<Potion> Potions;
+	public Inventory(){
+		this.Potions = new ArrayList<Potion>();
+	}
 	public Weapon getWeapon() {
 		return weapon;
 	}
