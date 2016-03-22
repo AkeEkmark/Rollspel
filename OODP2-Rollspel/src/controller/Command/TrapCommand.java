@@ -25,11 +25,12 @@ public class TrapCommand implements CommandInterface {
 		int heroTmp = d20.roll() + hero.getAgility();
 		int trapTmp = trap.getDifficulty();
 		if(heroTmp > trapTmp){
+			trap.setTriggered();
 			GameOutput.addGameText("You barely manage to dodge away from the spikes", false);
 		} else{
+			trap.setTriggered();
 			GameOutput.addGameText("With no chance to react to the spikes they penetrate your body dealing " +trap.getdamage() +" damage", false);
 			hero.removeHitpoints(trap.getdamage());
 		}
-		trap.setTriggered();
 	}
 }

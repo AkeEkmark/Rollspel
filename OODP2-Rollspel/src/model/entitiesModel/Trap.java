@@ -9,6 +9,4 @@ public abstract class Trap {
 	public abstract boolean hasTriggered();
 	public abstract void setTriggered();
 	
-	
-
 }
