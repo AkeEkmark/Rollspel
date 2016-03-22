@@ -9,9 +9,9 @@ import model.entitiesModel.MonsterIsDeadException;
 import model.modelUtilities.ModelFacade;
 
 public class FightState implements StateInterface {
-	Monster monster;
-	Hero character;
-	ModelFacade modelFacade;
+	private Monster monster;
+	private Hero character;
+	private ModelFacade modelFacade;
 	private StateInterface defaultState;
 
 	public FightState(ModelFacade modelFacade) {
@@ -22,6 +22,7 @@ public class FightState implements StateInterface {
 
 	@Override
 	public void interactionLoop() {
+		System.out.println("fightstate "+this);
 		while(true) {
 			FightCommand fight = new FightCommand(monster, character);
 			try {
@@ -53,7 +54,5 @@ public class FightState implements StateInterface {
 	@Override
 	public void setDefaultState(StateInterface state) {
 		this.defaultState = state;
-		
 	}
-
 }

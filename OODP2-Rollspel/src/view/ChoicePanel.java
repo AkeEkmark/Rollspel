@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import controller.Facade;
+import controller.states.DefaultState;
+import controller.states.StateInterface;
 
 public class ChoicePanel extends JPanel implements ActionListener {
 	private Facade facade;
@@ -35,6 +37,9 @@ public class ChoicePanel extends JPanel implements ActionListener {
 		facade.createChar(namePanel.getCharName(), classPanel.getSelectedClass());
 		gui.start();
 		this.setVisible(false);
+		StateInterface state = new DefaultState(facade.getModel());
+		state.setDefaultState(state);
+		state.interactionLoop();
 	}
 
 }

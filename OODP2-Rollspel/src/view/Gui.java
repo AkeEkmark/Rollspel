@@ -15,7 +15,6 @@ public class Gui extends JFrame {
 		super();
 		this.modelFacade = modelFacade;
 		this.facade = facade;
-		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setName("Rollspel");
 		this.setSize(1000, 800);
@@ -25,5 +24,6 @@ public class Gui extends JFrame {
 	
 	public void start() {
 		this.add(new GamePanel(modelFacade));
+		this.setVisible(true);
 	}
 }

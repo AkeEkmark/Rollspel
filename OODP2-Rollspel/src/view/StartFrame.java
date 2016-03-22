@@ -11,7 +11,6 @@ public class StartFrame extends JFrame {
 
 	public StartFrame(Facade facade, Gui gui) {
 		super();
-		this.setVisible(true);
 		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		this.setName("Rollspel");
 		this.setSize(400, 400);
@@ -19,5 +18,6 @@ public class StartFrame extends JFrame {
 		choicePanel = new ChoicePanel(facade, gui);
 		this.add(choicePanel);
 		repaint();
+		this.setVisible(true);
 	}
 }
