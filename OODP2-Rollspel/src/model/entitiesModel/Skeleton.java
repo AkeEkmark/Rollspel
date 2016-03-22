@@ -1,14 +1,14 @@
 package model.entitiesModel;
 
-public class Kobold extends Monster {
+public class Skeleton extends Monster {
 	
-	public Kobold(String description){
+	public Skeleton(String description){
 		super(description);
 		super.strength = 15;
 		super.Agility = 14;
 		super.intelligence = 3;
 		super.hitpoints = 15;
-		super.name = "Kobold";
+		super.name = "Skeleton";
 		
 	}
 }

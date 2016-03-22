@@ -14,7 +14,7 @@ import model.characterModel.Warrior;
 import model.entitiesModel.Dagger;
 import model.entitiesModel.DarkDemonLord;
 import model.entitiesModel.HealingPotion;
-import model.entitiesModel.Kobold;
+import model.entitiesModel.Skeleton;
 import model.entitiesModel.LeatherHarness;
 import model.entitiesModel.Monster;
 import model.entitiesModel.SpikeTrap;
@@ -34,7 +34,7 @@ public class MainApp {
 		character.getInventory().setWeapon(new Dagger());
 		character.getInventory().setArmour(new LeatherHarness());
 		character.getInventory().addPotion(new HealingPotion(5));
-		Monster kobold = new Kobold("A nasty Kobold with a candle on his head");
+		Monster skeleton = new Skeleton("A nasty Kobold with a candle on his head");
 		Location firstRoom = dlb.buildLocation("A dark and smelly room with an aura of death and you see an exit to the north", kobold, null, new SpikeTrap());
 		System.out.println(firstRoom);
 		System.out.println(firstRoom.getAvailableActions());
