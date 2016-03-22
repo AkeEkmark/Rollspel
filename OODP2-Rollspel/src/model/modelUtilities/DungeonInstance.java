@@ -15,10 +15,8 @@ public class DungeonInstance implements LocationInstance {
 	private int index = 0;
 	private Monster monster = null;
 	
-	public DungeonInstance(List<Location> dungeonMap, Hero character){
+	public DungeonInstance(List<Location> dungeonMap){
 		this.dungeonMap = dungeonMap;
-		this.character = character;
-		
 	}
 	
 	@Override
@@ -35,6 +33,12 @@ public class DungeonInstance implements LocationInstance {
 	public Location getCurrentLocation() {	
 		return dungeonMap.get(index);
 	}
+	
+	@Override
+	public void setCharacter(Hero character) {
+		this.character = character;
+	}
+	
 
 	public Hero getCharacter() {
 		return character;
@@ -54,4 +58,5 @@ public class DungeonInstance implements LocationInstance {
 		TrapLocation location = (TrapLocation) getCurrentLocation();
 		return location.getTrap();
 	}
+
 }
