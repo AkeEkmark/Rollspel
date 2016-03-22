@@ -21,53 +21,49 @@ public class LootLocation extends LocationDecorator implements LocationInterface
 	}
 
 	public Location getNorthExit() {
-		return location.northExit;
+		return location.getNorthExit();
 	}
-
+	
 	public void setNorthExit(Location northExit) {
-		location.northExit = northExit;
-		location.addAction(Action.goNorth);
+		location.setNorthExit(northExit);
 	}
-
+	
 	public Location getEastExit() {
-		return location.eastExit;
+		return location.getEastExit();
 	}
-
+	
 	public void setEastExit(Location eastExit) {
-		location.eastExit = eastExit;
-		location.addAction(Action.goEast);
+		location.setEastExit(eastExit);
 	}
-
+	
 	public Location getSouthExit() {
-		return location.southExit;
+		return location.getEastExit();
 	}
-
+	
 	public void setSouthExit(Location southExit) {
-		location.southExit = southExit;
-		location.addAction(Action.goSouth);
+		location.setSouthExit(southExit);
 	}
-
+	
 	public Location getWestExit() {
-		return location.westExit;
+		return location.getWestExit();
 	}
-
+	
 	public void setWestExit(Location westExit) {
-		location.westExit = westExit;
-		location.addAction(Action.goWest);
+		location.setWestExit(westExit);
 	}
-
+	
 	public String getDescription() {
-		return location.description;
+		return location.getDescription();
 	}
-
+	
 	public List<Action> getAvailableActions() {
-		return location.availableActions;
+		return location.getAvailableActions();
 	}
-
+	
 	public void addAction(Action action) {
-		location.availableActions.add(action);
+		location.addAction(action);
 	}
-
+	
 	@Override
 	public Monster getMonster() {
 		return location.getMonster();
