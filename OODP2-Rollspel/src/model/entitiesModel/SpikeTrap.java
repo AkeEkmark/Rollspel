@@ -6,6 +6,7 @@ public class SpikeTrap extends Trap {
 		super.damage = 10;
 		super.difficulty = 25;
 		super.hasTriggered = false;
+		super.description = "A number of spikes shoot out from the floor";
 	}
 	@Override
 	public int getDifficulty() {
@@ -24,6 +25,18 @@ public class SpikeTrap extends Trap {
 	public void setTriggered() {
 		hasTriggered = true;
 		
+	}
+	@Override
+	public String getDescription() {
+		return description;
+	}
+	@Override
+	public String getHitDesc() {
+		return "With no chance to react to the spikes they penetrate your body dealing " +getdamage() +" damage";
+	}
+	@Override
+	public String getMissDesc() {
+		return "You barely manage to dodge away from the spikes";
 	}
 
 }

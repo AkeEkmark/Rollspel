@@ -13,10 +13,13 @@ public class CharacterStatsPanel extends JPanel implements Observer{
 	private static final long serialVersionUID = -6114308614123193068L;
 	
 	private Hero character;
-	private JLabel hitpoints;
 	private JLabel name;
+	private JLabel characterClass;
+	private JLabel hitpoints;
 	private JLabel strength;
-	private JLabel strengthNbr;
+	private JLabel intelligence;
+	private JLabel agility;
+
 	
 	
 	public CharacterStatsPanel(Hero character) {
@@ -25,23 +28,25 @@ public class CharacterStatsPanel extends JPanel implements Observer{
 		this.character = character;
 		character.addObserver(this);
 		name = new JLabel("Name : "+character.getName());
+		characterClass = new JLabel("Class : "+character.getCharacterClass());
 		hitpoints = new JLabel("Hitpoints : "+character.getHitpoints());
-		strength = new JLabel("Strength :");
-		strengthNbr = new JLabel(""+character.getStrength());
+		strength = new JLabel("Strength : "+character.getStrength());
+		agility = new JLabel("Agility : "+character.getAgility());
+		intelligence = new JLabel("Intelligence : "+character.getIntelligence());
 		add(name);
+		add(characterClass);
 		add(hitpoints);
 		add(strength);
-		add(strengthNbr);
-		
+		add(agility);
+		add(intelligence);
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		name.setText("Name : "+character.getName());
 		hitpoints.setText("Hitpoints : "+character.getHitpoints());
-		strengthNbr.setText(""+character.getStrength());
-		repaint();
-		
+		strength.setText("Strength : "+character.getStrength());
+		agility.setText("Agility : "+character.getAgility());
+		intelligence.setText("Intelligence : "+character.getIntelligence());
 	}
 
 }

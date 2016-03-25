@@ -9,6 +9,7 @@ public class Rogue extends Hero{
 		super.intelligence = 10;
 		super.hitpoints = 30;
 		super.maxHitpoints = 30;
+		super.characterClass = "Rogue";
 	
 	}
 }

@@ -17,7 +17,7 @@ public class TrapCommand implements CommandInterface {
 	}
 	@Override
 	public void execute() throws MonsterIsDeadException, CharacterIsDeadException {
-		GameOutput.addGameText("A number of spikes shoot out from the floor", false);
+		GameOutput.addGameText(trap.getDescription(), false);
 		trapTriggered();
 
 	}
@@ -26,10 +26,10 @@ public class TrapCommand implements CommandInterface {
 		int trapTmp = trap.getDifficulty();
 		if(heroTmp > trapTmp){
 			trap.setTriggered();
-			GameOutput.addGameText("You barely manage to dodge away from the spikes", false);
+			GameOutput.addGameText(trap.getMissDesc(), false);
 		} else{
 			trap.setTriggered();
-			GameOutput.addGameText("With no chance to react to the spikes they penetrate your body dealing " +trap.getdamage() +" damage", false);
+			GameOutput.addGameText(trap.getHitDesc(), false);
 			hero.removeHitpoints(trap.getdamage());
 		}
 	}

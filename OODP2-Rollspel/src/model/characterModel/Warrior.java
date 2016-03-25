@@ -9,6 +9,7 @@ public class Warrior extends Hero {
 		super.intelligence = 10;
 		super.hitpoints = 30;
 		super.maxHitpoints = 30;
+		super.characterClass = "Warrior";
 		
 	}
 

@@ -22,12 +22,19 @@ public class DefaultState implements StateInterface, Observer {
 	@Override
 	public void interactionLoop() {
 		System.out.println("defaultstate "+this);
-		GameOutput.addGameText(modelFacade.getLocation().getDescription(), false);		
+		GameOutput.addGameText(modelFacade.getLocation().getDescription(), false);
+		try {
+			Thread.sleep(1);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		if (location.getAvailableActions().contains(Action.Fight)) {
 			if (modelFacade.monsterIsAlive()) {
 				FightState fight = new FightState(modelFacade);
+				Thread fightThread = new Thread(fight);
 				fight.setDefaultState(defaultState);
-				changeState(fight);		
+				fightThread.start();
+				return;
 			}
 		}
 		if(location.getAvailableActions().contains(Action.Trap)){
@@ -35,6 +42,7 @@ public class DefaultState implements StateInterface, Observer {
 				TrapState trap = new TrapState(modelFacade);
 				trap.setDefaultState(defaultState);
 				changeState(trap);
+				return;
 			}
 		}
 	}

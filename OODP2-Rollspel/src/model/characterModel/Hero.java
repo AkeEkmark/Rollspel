@@ -12,7 +12,11 @@ public abstract class Hero extends Observable {
 	protected int agility;
 	protected int maxHitpoints;
 	protected Inventory inventory;
+	protected String characterClass;
 
+	public String getCharacterClass() {
+		return characterClass;
+	}
 	public Hero(String name){
 		this.name = name;
 		this.inventory =  new Inventory();
@@ -61,4 +65,5 @@ public abstract class Hero extends Observable {
 		setChanged();
 	    notifyObservers();
 	}
+	
 }

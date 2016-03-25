@@ -55,7 +55,6 @@ public class MainApp {
 		ModelFacade modelFacade = new DungeonModelFacade(di);
 		Facade facade = new Facade(modelFacade);
 		Gui gui = new Gui(modelFacade, facade);
-		gui.start();
 		StateInterface state = new DefaultState(modelFacade);
 		state.setDefaultState(state);
 		state.interactionLoop();

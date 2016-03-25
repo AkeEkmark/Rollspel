@@ -1,10 +1,8 @@
 package controller;
 
-
-
 import model.modelUtilities.GameText;
 
-public class GameOutput {
+public class GameOutput implements Runnable {
 	private static GameOutput gameOutPut = null;
 	private static GameTextList<GameText> gameText;
 	
@@ -21,12 +19,18 @@ public class GameOutput {
 		
 	}
 	public static void addGameText(String s, boolean animated){
-		gameText.add(new GameText(s, animated));
+		getInstance().getTextList().add(new GameText(s, animated));
 		
 	}
 	
 	public GameTextList<GameText> getTextList() {
 		return gameText;
+		
+	}
+
+	@Override
+	public void run() {
+		new GameOutput();
 		
 	}
 }

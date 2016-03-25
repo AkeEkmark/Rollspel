@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import controller.Facade;
 import model.modelUtilities.ModelFacade;
 
-public class Gui extends JFrame {
+public class Gui extends JFrame implements Runnable{
 	private ModelFacade modelFacade;
 	private Facade facade;
 
@@ -21,8 +21,9 @@ public class Gui extends JFrame {
 		this.setLocationRelativeTo(null);
 		
 	}
-	
-	public void start() {
+
+	@Override
+	public void run() {
 		this.add(new GamePanel(modelFacade));
 		this.setVisible(true);
 	}

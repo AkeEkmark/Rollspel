@@ -8,7 +8,7 @@ import model.entitiesModel.Monster;
 import model.entitiesModel.MonsterIsDeadException;
 import model.modelUtilities.ModelFacade;
 
-public class FightState implements StateInterface {
+public class FightState implements StateInterface, Runnable{
 	private Monster monster;
 	private Hero character;
 	private ModelFacade modelFacade;
@@ -22,29 +22,7 @@ public class FightState implements StateInterface {
 
 	@Override
 	public void interactionLoop() {
-		System.out.println("fightstate "+this);
-		while(true) {
-			FightCommand fight = new FightCommand(monster, character);
-			try {
-				fight.execute();
-			} catch (MonsterIsDeadException e) {
-				GameOutput.addGameText("The monster is dead", false);
-				modelFacade.monsterIsSlain();
-				changeState(defaultState);
-				
-				
-				break;
-			} catch (CharacterIsDeadException e) {
-				changeState(new DefeatState());
-				break;
-			}
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				
-				e.printStackTrace();
-			}
-		}
+		
 	}
 
 	@Override
@@ -54,5 +32,30 @@ public class FightState implements StateInterface {
 	@Override
 	public void setDefaultState(StateInterface state) {
 		this.defaultState = state;
+	}
+
+	@Override
+	public void run() {
+		System.out.println("fightstate "+this);
+		GameOutput.addGameText(monster.getDescription(), false);
+		while(true) {
+			FightCommand fight = new FightCommand(monster, character);
+			try {
+				fight.execute();
+			} catch (MonsterIsDeadException e) {
+				GameOutput.addGameText("The monster is dead", false);
+				modelFacade.monsterIsSlain();
+				changeState(defaultState);
+				break;
+			} catch (CharacterIsDeadException e) {
+				changeState(new DefeatState());
+				break;
+			}
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

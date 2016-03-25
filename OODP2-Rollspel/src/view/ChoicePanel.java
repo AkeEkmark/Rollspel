@@ -35,11 +35,13 @@ public class ChoicePanel extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		facade.createChar(namePanel.getCharName(), classPanel.getSelectedClass());
-		gui.start();
+		Thread guiThread = new Thread(gui);
+		guiThread.start();
 		this.setVisible(false);
 		StateInterface state = new DefaultState(facade.getModel());
 		state.setDefaultState(state);
 		state.interactionLoop();
+		this.setEnabled(false);
 	}
 
 }
