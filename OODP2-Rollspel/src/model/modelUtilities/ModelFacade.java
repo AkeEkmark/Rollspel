@@ -6,6 +6,7 @@ import model.characterModel.CharacterIsDeadException;
 import model.entitiesModel.Loot;
 import model.entitiesModel.Monster;
 import model.entitiesModel.MonsterIsDeadException;
+import model.entitiesModel.Quest;
 import model.entitiesModel.Trap;
 import model.roomModel.Location;
 import model.characterModel.Hero;
@@ -27,6 +28,8 @@ public interface ModelFacade  {
 	public boolean trapHasTriggered();
 	public void loot(Loot loot);
 	public void setCharacter(Hero character);
+	public boolean questIsDone();
+	public Quest getQuest();
 	
 	
 }

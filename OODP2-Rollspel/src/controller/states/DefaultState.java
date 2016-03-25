@@ -37,11 +37,19 @@ public class DefaultState implements StateInterface, Observer {
 				return;
 			}
 		}
-		if(location.getAvailableActions().contains(Action.Trap)){
+		if(location.getAvailableActions().contains(Action.Trap)) {
 			if(!modelFacade.trapHasTriggered()){
 				TrapState trap = new TrapState(modelFacade);
 				trap.setDefaultState(defaultState);
 				changeState(trap);
+				return;
+			}
+		}
+		if (location.getAvailableActions().contains(Action.Quest)) {
+			if(modelFacade.questIsDone()) {
+				QuestState quest = new QuestState(modelFacade);
+				quest.setDefaultState(defaultState);
+				changeState(quest);
 				return;
 			}
 		}

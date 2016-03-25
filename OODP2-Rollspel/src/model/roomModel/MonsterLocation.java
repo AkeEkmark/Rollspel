@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.entitiesModel.Loot;
 import model.entitiesModel.Monster;
+import model.entitiesModel.Quest;
 import model.entitiesModel.Trap;
 
 public class MonsterLocation extends LocationDecorator implements LocationInterface {
@@ -72,6 +73,11 @@ public class MonsterLocation extends LocationDecorator implements LocationInterf
 	@Override
 	public Trap getTrap() {
 		return location.getTrap();
+	}
+
+	@Override
+	public Quest getQuest() {
+		return location.getQuest();
 	}
 
 }

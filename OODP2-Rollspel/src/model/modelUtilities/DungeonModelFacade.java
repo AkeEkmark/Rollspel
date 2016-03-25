@@ -10,6 +10,7 @@ import model.entitiesModel.Loot;
 import model.entitiesModel.Monster;
 import model.entitiesModel.MonsterIsDeadException;
 import model.entitiesModel.Potion;
+import model.entitiesModel.Quest;
 import model.entitiesModel.Trap;
 import model.entitiesModel.Weapon;
 import model.roomModel.Location;
@@ -92,6 +93,14 @@ public class DungeonModelFacade extends Observable implements ModelFacade {
 		di.setCharacter(character);
 		character.getInventory().setWeapon(new Dagger());
 		character.getInventory().setArmour(new LeatherHarness());
+	}
+	@Override
+	public boolean questIsDone() {
+		return getQuest().isDone();
+	}
+	@Override
+	public Quest getQuest() {
+		return di.getQuest();
 	}
 
 }

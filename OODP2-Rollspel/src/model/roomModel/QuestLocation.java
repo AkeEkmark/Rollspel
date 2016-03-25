@@ -7,18 +7,23 @@ import model.entitiesModel.Monster;
 import model.entitiesModel.Quest;
 import model.entitiesModel.Trap;
 
-public class LootLocation extends LocationDecorator implements LocationInterface {
-	private Loot loot;
+public class QuestLocation extends LocationDecorator implements LocationInterface {
+	
+	private Quest quest;
 
-	public LootLocation(Location location, Loot loot) {
+	public QuestLocation(Location location, Quest quest) {
 		super(location);
-		this.loot = loot;
-		addAction(Action.loot);
-
+		this.quest = quest;
+		addAction(Action.Quest);
 	}
 
+	@Override
+	public Quest getQuest() {
+		return quest;
+	}
+	
 	public Loot getLoot() {
-		return loot;
+		return location.getLoot();
 	}
 
 	public Location getNorthExit() {
@@ -74,11 +79,4 @@ public class LootLocation extends LocationDecorator implements LocationInterface
 	public Trap getTrap() {
 		return location.getTrap();
 	}
-
-	@Override
-	public Quest getQuest() {
-		return location.getQuest();
-	}
-
 }
-

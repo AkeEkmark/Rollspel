@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.entitiesModel.Loot;
 import model.entitiesModel.Monster;
+import model.entitiesModel.Quest;
 import model.entitiesModel.Trap;
 
 public interface LocationInterface {
@@ -38,6 +39,8 @@ public interface LocationInterface {
 	public Loot getLoot();
 	
 	public Trap getTrap();
+	
+	public Quest getQuest();
 	
 }
 

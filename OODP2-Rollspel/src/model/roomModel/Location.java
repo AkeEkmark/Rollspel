@@ -5,6 +5,7 @@ import java.util.List;
 
 import model.entitiesModel.Loot;
 import model.entitiesModel.Monster;
+import model.entitiesModel.Quest;
 import model.entitiesModel.Trap;
 
 public abstract class Location implements LocationInterface {
@@ -86,5 +87,8 @@ public abstract class Location implements LocationInterface {
 	public Loot getLoot(){
 		return null;
 		
+	}
+	public Quest getQuest() {
+		return null;
 	}
 }

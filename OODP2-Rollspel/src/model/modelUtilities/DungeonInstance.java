@@ -3,6 +3,7 @@ package model.modelUtilities;
 import java.util.List;
 import model.characterModel.Hero;
 import model.entitiesModel.Monster;
+import model.entitiesModel.Quest;
 import model.entitiesModel.Trap;
 import model.roomModel.Location;
 import model.roomModel.MonsterLocation;
@@ -54,6 +55,10 @@ public class DungeonInstance implements LocationInstance {
 
 	public Trap getTrap() {
 		return getCurrentLocation().getTrap();
+	}
+
+	public Quest getQuest() {
+		return getCurrentLocation().getQuest();
 	}
 
 }
