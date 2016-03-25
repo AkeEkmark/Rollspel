@@ -12,7 +12,7 @@ import controller.states.StateInterface;
 import model.characterModel.Hero;
 import model.characterModel.Warrior;
 import model.entitiesModel.Dagger;
-import model.entitiesModel.DarkDemonLord;
+import model.entitiesModel.DarkDemon;
 import model.entitiesModel.HealingPotion;
 import model.entitiesModel.Skeleton;
 import model.entitiesModel.LeatherHarness;
@@ -44,7 +44,7 @@ public class MainApp {
 		Location secondRoom = dlb.buildLocation("A room filled with treasure", null, null, null);
 		firstRoom.setNorthExit(secondRoom);
 		dungeonMap.add(secondRoom);
-		Location thirdRoom = dlb.buildLocation("Endboss room", new DarkDemonLord("The end boss"), null, null);
+		Location thirdRoom = dlb.buildLocation("Endboss room", new DarkDemon("The end boss"), null, null);
 		secondRoom.setEastExit(thirdRoom);
 		dungeonMap.add(thirdRoom);
 		Location fourthRoom = dlb.buildLocation("A black hole", null, null, null);

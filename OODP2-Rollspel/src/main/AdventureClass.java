@@ -13,6 +13,7 @@ import model.characterModel.Hero;
 import model.characterModel.Warrior;
 import model.entitiesModel.Dagger;
 import model.entitiesModel.DarkDemon;
+import model.entitiesModel.DeathTrap;
 import model.entitiesModel.DarkDemon;
 import model.entitiesModel.HealingPotion;
 import model.entitiesModel.Skeleton;
@@ -36,7 +37,7 @@ public class AdventureClass {
 		
 		DungeonLocationBuilder dlb = new DungeonLocationBuilder();
 
-		Location firstRoom = dlb.buildLocation("", null, null, null);
+		Location firstRoom = dlb.buildLocation("start add description", null, null, null);
 
 		dungeonMap.add(firstRoom);
 
@@ -55,7 +56,7 @@ public class AdventureClass {
 		thirdRoom.setNorthExit(fourthRoom);
 		dungeonMap.add(fourthRoom);
 
-		Location fifthRoom = dlb.buildLocation("As you enter through the gate and walk into a vast dark corridor, you are strucked by a nagging feeling that something is wrong.. Somehow you can sense the strong prescence of an evil omnipotent being who have set a trap by which its to late to escape from. You are surrounded by silence and darkness. Time and space is warped around you and as a result you are forever doomed to wander this corridor endlessly without purpose or meaning. Your life as you know it and your adventure ends here.", null, null, null);
+		Location fifthRoom = dlb.buildLocation("As you enter through the gate and walk into a vast dark corridor, you are strucked by a nagging feeling that something is wrong.. Somehow you can sense the strong prescence of an evil omnipotent being who have set a trap by which its to late to escape from. You are surrounded by silence and darkness. Time and space is warped around you and as a result you are forever doomed to wander this corridor endlessly without purpose or meaning. Your life as you know it and your adventure ends here.", null, null, new DeathTrap());
 		dungeonMap.add(fifthRoom);
 		
 		//room 6 was supposed to be wizard room, add if time permits..

@@ -14,28 +14,20 @@ import javax.swing.JTextArea;
 import controller.GameTextList;
 import model.modelUtilities.GameText;
 
-public class GameOutputPanel extends JPanel implements Observer {
+public class GameOutputPanel extends JPanel implements Observer, Runnable {
 
 	private static final long serialVersionUID = -5929746236259538785L;
 	private GameTextList<GameText> gameTextList;
 	private JTextArea textArea;
 	private JScrollPane scrollPane;
 
-	public GameOutputPanel(GameTextList gameTextList) {
+	public GameOutputPanel(GameTextList<GameText> gameTextList) {
 		super();
-		this.setVisible(true);
 		this.setBackground(Color.white);
 		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		this.gameTextList = gameTextList;
-		textArea = new JTextArea(20, 100);
-		textArea.setLineWrap(true);
-		textArea.setWrapStyleWord(true);
-		textArea.setEditable(false);
-		scrollPane = new JScrollPane(textArea);
-		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setPreferredSize(new Dimension(800, 600));
-		gameTextList.addObserver(this);
-		this.add(scrollPane);
+		run();
+		
 
 	}
 
@@ -45,9 +37,21 @@ public class GameOutputPanel extends JPanel implements Observer {
 		String s = gameText.getS();
 		textArea.append(s+"\n");
 		textArea.setCaretPosition(textArea.getDocument().getLength());
-		repaint();
-		
-		
+
+	}
+
+	@Override
+	public void run() {
+		textArea = new JTextArea(20, 100);
+		textArea.setLineWrap(true);
+		textArea.setWrapStyleWord(true);
+		textArea.setEditable(false);
+		scrollPane = new JScrollPane(textArea);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setPreferredSize(new Dimension(800, 600));
+		gameTextList.addObserver(this);
+		this.add(scrollPane);
+		this.setVisible(true);
 	}
 
 }
