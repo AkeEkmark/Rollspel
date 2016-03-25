@@ -7,49 +7,43 @@ public class DeathTrap extends Trap {
 	super.damage = 500;
 	super.difficulty = 500;
 	super.hasTriggered = false;
-	super.description = "";
+	super.description = "You are surrounded by silence and darkness. Time and space is warped around you and as a result you are "
+			+ "forever doomed to wander this corridor endlessly without purpose or meaning.";
 	}
 	
 	@Override
 	public int getDifficulty() {
-		// TODO Auto-generated method stub
-		return 0;
+		return difficulty;
 	}
 
 	@Override
 	public int getdamage() {
-		// TODO Auto-generated method stub
-		return 0;
+		return damage;
 	}
 
 	@Override
 	public boolean hasTriggered() {
-		// TODO Auto-generated method stub
-		return false;
+		return hasTriggered;
 	}
 
 	@Override
 	public void setTriggered() {
-		// TODO Auto-generated method stub
-
+		hasTriggered = true;
 	}
 
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
-		return null;
+		return description;
 	}
 
 	@Override
 	public String getHitDesc() {
-		// TODO Auto-generated method stub
 		return "Your life as you know it and your adventure ends here.";
 	}
 
 	@Override
 	public String getMissDesc() {
-		// TODO Auto-generated method stub
-		return null;
+		return "No chance";
 	}
 
 }

@@ -1,5 +1,7 @@
 package controller;
 
+import model.Factory.HeroFactory;
+import model.characterModel.Hero;
 import model.entitiesModel.HealingPotion;
 import model.modelUtilities.ModelFacade;
 
@@ -17,6 +19,8 @@ public class Facade {
 	}
 	public void createChar(String charName, String selectedClass) {
 		System.out.println("Create char with name : "+charName +" and class : "+selectedClass);
+		Hero hero = HeroFactory.getHero(charName, selectedClass);
+		modelFacade.setCharacter(hero);
 		
 	}
 }

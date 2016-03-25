@@ -24,7 +24,6 @@ public class DungeonInstance implements LocationInstance {
 		for(int i = 0; i< dungeonMap.size(); i++){
 			if (dungeonMap.get(i).equals(nextRoom)){
 				index = i; 
-				System.out.println("character moved to :"+index);
 			}
 		}
 	}

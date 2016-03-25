@@ -4,6 +4,7 @@ public class Weapon implements Loot {
 	protected String name;
 	protected int modifier;
 	protected boolean hasBeenLooted = false;
+	protected String lootDescription;
 	public String getName() {
 		return name;
 	}
@@ -30,6 +31,10 @@ public class Weapon implements Loot {
 	@Override
 	public boolean isPotion() {
 		return false;
+	}
+	@Override
+	public String lootDesc() {
+		return lootDescription;
 	}
 	
 }

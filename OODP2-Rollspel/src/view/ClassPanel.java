@@ -22,8 +22,8 @@ public class ClassPanel extends JPanel {
 		warrior.setActionCommand("warrior");
 		rogue = new JRadioButton("Rogue");
 		rogue.setActionCommand("rogue");
-		scholar = new JRadioButton("Scholar");
-		scholar.setActionCommand("scholar");
+		scholar = new JRadioButton("Mysticist");
+		scholar.setActionCommand("mysticist");
 		buttonGroup.add(warrior);
 		buttonGroup.add(rogue);
 		buttonGroup.add(scholar);

@@ -1,6 +1,7 @@
 package controller.Command;
 
 import controller.Facade;
+import controller.GameOutput;
 import model.modelUtilities.ModelFacade;
 import model.roomModel.Location;
 
@@ -14,8 +15,9 @@ public class LootCommand implements CommandInterface {
 	}
 	@Override
 	public void execute()  {
+		System.out.println("Loootar");
 		modelFacade.loot(currentLoc.getLoot());
-
+		GameOutput.addGameText(currentLoc.getLoot().lootDesc(), false);
 	}
 
 }

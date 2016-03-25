@@ -27,7 +27,7 @@ public class TrapCommand implements CommandInterface {
 		if(heroTmp > trapTmp){
 			trap.setTriggered();
 			GameOutput.addGameText(trap.getMissDesc(), false);
-		} else{
+		} else {
 			trap.setTriggered();
 			GameOutput.addGameText(trap.getHitDesc(), false);
 			hero.removeHitpoints(trap.getdamage());

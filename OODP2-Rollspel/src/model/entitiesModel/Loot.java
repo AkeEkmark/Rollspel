@@ -7,4 +7,5 @@ public String getName();
 public boolean isWeapon();
 public boolean isArmour();
 public boolean isPotion();
+public String lootDesc();
 }

@@ -26,6 +26,7 @@ public interface ModelFacade  {
 	public Trap getTrap();
 	public boolean trapHasTriggered();
 	public void loot(Loot loot);
+	public void setCharacter(Hero character);
 	
 	
 }

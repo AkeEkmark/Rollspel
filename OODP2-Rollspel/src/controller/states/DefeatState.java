@@ -6,6 +6,7 @@ public class DefeatState implements StateInterface {
 
 	@Override
 	public void interactionLoop() {
+		System.out.println("DefeatState "+this);
 		GameOutput.addGameText("Your life and adventure ends here.", false);
 	}
 

@@ -2,6 +2,7 @@ package model.entitiesModel;
 
 public class HealingPotion extends Potion {
 	private int hitpointsToHeal;
+	protected String lootDescription;
 	public HealingPotion(int healingPower){
 		this.hitpointsToHeal=healingPower;
 		super.hasBeenLooted = false;
@@ -34,5 +35,9 @@ public class HealingPotion extends Potion {
 	@Override
 	public boolean isPotion() {
 		return true;
+	}
+	@Override
+	public String lootDesc() {
+		return lootDescription;
 	}
 }

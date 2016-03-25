@@ -24,7 +24,7 @@ public class DefaultState implements StateInterface, Observer {
 		System.out.println("defaultstate "+this);
 		GameOutput.addGameText(modelFacade.getLocation().getDescription(), false);
 		try {
-			Thread.sleep(1);
+			Thread.sleep(10);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

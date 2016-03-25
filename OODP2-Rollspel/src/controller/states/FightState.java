@@ -37,13 +37,14 @@ public class FightState implements StateInterface, Runnable{
 	@Override
 	public void run() {
 		System.out.println("fightstate "+this);
-		GameOutput.addGameText(monster.getDescription(), false);
+		
+		GameOutput.addGameText("\n"+monster.getDescription(), false);
 		while(true) {
 			FightCommand fight = new FightCommand(monster, character);
 			try {
 				fight.execute();
 			} catch (MonsterIsDeadException e) {
-				GameOutput.addGameText("The monster is dead", false);
+				GameOutput.addGameText("The "+monster.getName()+" is dead", false);
 				modelFacade.monsterIsSlain();
 				changeState(defaultState);
 				break;
