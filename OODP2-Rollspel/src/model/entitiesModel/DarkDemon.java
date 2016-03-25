@@ -1,8 +1,8 @@
 package model.entitiesModel;
 
-public class DarkDemonLord extends Monster {
+public class DarkDemon extends Monster {
 
-	public DarkDemonLord(String description) {
+	public DarkDemon(String description) {
 		super(description);
 		super.strength = 20;
 		super.Agility = 20;
