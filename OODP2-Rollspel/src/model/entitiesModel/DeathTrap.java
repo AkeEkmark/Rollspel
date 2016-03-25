@@ -7,8 +7,7 @@ public class DeathTrap extends Trap {
 	super.damage = 500;
 	super.difficulty = 500;
 	super.hasTriggered = false;
-	super.description = "You are surrounded by silence and darkness. Time and space is warped around you and as a result you are "
-			+ "forever doomed to wander this corridor endlessly without purpose or meaning.";
+	super.description = "You are surrounded by silence and darkness.";
 	}
 	
 	@Override
@@ -38,7 +37,8 @@ public class DeathTrap extends Trap {
 
 	@Override
 	public String getHitDesc() {
-		return "Your life as you know it and your adventure ends here.";
+		return "Time and space is warped around you and as a result you are "
+			+ "forever doomed to wander this corridor endlessly without purpose or meaning.";
 	}
 
 	@Override
