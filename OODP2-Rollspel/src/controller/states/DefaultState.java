@@ -46,7 +46,7 @@ public class DefaultState implements StateInterface, Observer {
 			}
 		}
 		if (location.getAvailableActions().contains(Action.Quest)) {
-			if(modelFacade.questIsDone()) {
+			if(!modelFacade.questIsDone()) {
 				QuestState quest = new QuestState(modelFacade);
 				quest.setDefaultState(defaultState);
 				changeState(quest);

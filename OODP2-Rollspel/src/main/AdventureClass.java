@@ -4,31 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import controller.DungeonLocationBuilder;
-import controller.Facade;
-import controller.GameOutput;
-import controller.states.DefaultState;
-import controller.states.FightState;
-import controller.states.StateInterface;
-import model.characterModel.Hero;
-import model.characterModel.Warrior;
 import model.entitiesModel.ChainMail;
-import model.entitiesModel.Dagger;
 import model.entitiesModel.DarkDemon;
 import model.entitiesModel.DeathTrap;
-import model.entitiesModel.DarkDemon;
-import model.entitiesModel.HealingPotion;
 import model.entitiesModel.Skeleton;
-import model.entitiesModel.LeatherHarness;
-import model.entitiesModel.Monster;
 import model.entitiesModel.SpikeTrap;
+import model.entitiesModel.TestQuest;
 import model.entitiesModel.Zweihander;
-import model.modelUtilities.DungeonInstance;
-import model.modelUtilities.DungeonModelFacade;
-import model.modelUtilities.ModelFacade;
-import model.roomModel.DungeonLocation;
 import model.roomModel.Location;
-import model.roomModel.MonsterLocation;
-import view.Gui;
 
 public class AdventureClass {
 
@@ -39,7 +22,7 @@ public class AdventureClass {
 		
 		DungeonLocationBuilder dlb = new DungeonLocationBuilder();
 
-		Location firstRoom = dlb.buildLocation("start add description", null, null, null);
+		Location firstRoom = dlb.buildLocation("start add description", null, null, null, new TestQuest("Skriv in ett nummer"));
 
 		dungeonMap.add(firstRoom);
 
@@ -49,11 +32,11 @@ public class AdventureClass {
 				new Skeleton("In the distant you hear footsteps echoing and a rattling sound. "
 						+ "A skeleton prison guard becomes visible and he has spotted you. "
 						+ "He draws his sword and screams in rage as he runs towards you in a furious attack. "
-						+ "Prepare to fight!"), new Zweihander(), null);
+						+ "Prepare to fight!"), new Zweihander(), null, null);
 		firstRoom.setNorthExit(secondRoom);
 		dungeonMap.add(secondRoom);
 
-		Location thirdRoom = dlb.buildLocation("add description trap room", null, new ChainMail(), new SpikeTrap());
+		Location thirdRoom = dlb.buildLocation("add description trap room", null, new ChainMail(), new SpikeTrap(), null);
 		secondRoom.setNorthExit(thirdRoom);
 		dungeonMap.add(thirdRoom);
 
@@ -63,7 +46,7 @@ public class AdventureClass {
 				+ "The inscription on the east door reads as follows: \n "
 				+ "What begins and has no end? And another inscription is carved on the west door: \n "
 				+ "What is always coming but never arrives? \n You reckon that theese are riddles of some kind, "
-				+ "which door do you choose?", null, null, null);
+				+ "which door do you choose?", null, null, null, null);
 		// riddle sixtSense roll!? answer is decay and tomorrow
 		thirdRoom.setNorthExit(fourthRoom);
 		dungeonMap.add(fourthRoom);
@@ -71,7 +54,7 @@ public class AdventureClass {
 		Location fifthRoom = dlb.buildLocation("As you enter through the gate and walk into a vast dark corridor, "
 				+ "you are strucked by a nagging feeling that something is wrong.. \n "
 				+ "Somehow you can sense the strong prescence of an evil omnipotent being who have set a "
-				+ "trap by which its to late to escape from.", null, null, new DeathTrap());
+				+ "trap by which its to late to escape from.", null, null, new DeathTrap(), null);
 		dungeonMap.add(fifthRoom);
 		
 		//room 6 was supposed to be wizard room, add if time permits..
@@ -82,7 +65,8 @@ public class AdventureClass {
 						+ "suddenly and swiftly turns towards you, At first glanze, he appears to be human but "
 						+ "it sends a chill down your spine as his face is revealed and you look into his lifeless eyes. \n "
 						+ "Its a dark demon and he spits in rage as he unsheatens a large black broadsword with strangely carved engravings. \n -"
-						+ "filthy human, you will never leave this place alive, he hisses as he attacks you. \n Prepare to fight the Dark Demon Templar"), null, null);
+						+ "filthy human, you will never leave this place alive, he hisses as he attacks you. \n "
+						+ "Prepare to fight the Dark Demon Templar"), null, null, null);
 		dungeonMap.add(sixthRoom);
 		
 		fourthRoom.setEastExit(fifthRoom);
@@ -91,7 +75,7 @@ public class AdventureClass {
 				+ "You run through the narrow passage which eventually leads you out in the open forest. /n "
 				+ "Your heart is pounding and you are all sweaty. \n You hear a distant gong echoes from the castle in "
 				+ "the background and your only hope is that there are no followers and that you will achieve your "
-				+ "freedom at last.. \n To be continued...", null, null, null);
+				+ "freedom at last.. \n To be continued...", null, null, null, null);
 		dungeonMap.add(seventhRoom);
 		sixthRoom.setNorthExit(seventhRoom);
 		

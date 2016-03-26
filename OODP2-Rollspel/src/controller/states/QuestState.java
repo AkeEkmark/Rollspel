@@ -19,16 +19,15 @@ public class QuestState implements StateInterface {
 	@Override
 	public void interactionLoop() {
 		System.out.println("QuestState :"+this);
-		QuestCommand questCommand = new QuestCommand(quest);
+		QuestCommand questCommand = new QuestCommand(quest, defaultState);
 		try {
 			questCommand.execute();
 		} catch (MonsterIsDeadException e) {
-			e.printStackTrace();
+	
 		} catch (CharacterIsDeadException e) {
-			DefeatState defeat = new DefeatState();
-			defeat.interactionLoop();
+			
 		}
-		changeState(defaultState);
+
 	}
 
 	@Override

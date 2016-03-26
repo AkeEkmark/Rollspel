@@ -1,10 +1,23 @@
 package model.entitiesModel;
 
-public class Quest {
-	private String description;
-	private boolean isDone = false;
-	private boolean answeredRight = false;
+import java.util.Observable;
+
+public class Quest extends Observable{
+	protected String description;
+	protected boolean isDone = false;
+	protected boolean answeredRight = false;
+	protected String rightAnswer;
+	protected String answeredRightDesc;
+	protected String answeredWrongDesc;
+	protected String playerAnswer;
 	
+	public String getPlayerAnswer() {
+		return playerAnswer;
+	}
+	public void setPlayerAnswer(String answer) {
+		this.playerAnswer = answer;
+	}
+
 	public Quest(String description) {
 		this.description = description;
 	}
@@ -19,6 +32,8 @@ public class Quest {
 	
 	public void setDone() {
 		isDone = true;
+		setChanged();
+		notifyObservers();
 	}
 	
 	public boolean getAnsweredRight() {
@@ -27,6 +42,18 @@ public class Quest {
 	
 	public void setAnsweredRight() {
 		answeredRight = true;
+	}
+
+	public String getRightAnswer() {
+		return rightAnswer;
+	}
+
+	public String getAnsweredRightDesc() {
+		return answeredRightDesc;
+	}
+
+	public String getAnsweredWrongDesc() {
+		return answeredWrongDesc;
 	}
 
 }
