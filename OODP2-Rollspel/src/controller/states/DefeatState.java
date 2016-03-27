@@ -3,6 +3,8 @@ package controller.states;
 import controller.GameOutput;
 
 public class DefeatState implements StateInterface {
+	
+	private StateInterface defaultState;
 
 	@Override
 	public void interactionLoop() {
@@ -17,7 +19,7 @@ public class DefeatState implements StateInterface {
 
 	@Override
 	public void setDefaultState(StateInterface state) {
-		// TODO Auto-generated method stub
+		this.defaultState = state;
 		
 	}
 

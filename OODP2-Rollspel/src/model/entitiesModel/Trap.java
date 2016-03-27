@@ -12,5 +12,4 @@ public abstract class Trap {
 	public abstract String getDescription();
 	public abstract String getHitDesc();
 	public abstract String getMissDesc();
-	
 }

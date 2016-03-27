@@ -6,10 +6,10 @@ import model.entitiesModel.HealingPotion;
 import model.modelUtilities.ModelFacade;
 
 public class Facade {
-	public static ModelFacade modelFacade;
+	private static ModelFacade modelFacade;
 	
 	public Facade(ModelFacade modelFacade) {
-		this.modelFacade = modelFacade;
+		Facade.modelFacade = modelFacade;
 	}
 	public static ModelFacade getModel() {
 		return modelFacade;
@@ -18,9 +18,7 @@ public class Facade {
 		modelFacade.addHitpointsToCharacter(potion.drinkPotion());
 	}
 	public void createChar(String charName, String selectedClass) {
-		System.out.println("Create char with name : "+charName +" and class : "+selectedClass);
 		Hero hero = HeroFactory.getHero(charName, selectedClass);
 		modelFacade.setCharacter(hero);
-		
 	}
 }

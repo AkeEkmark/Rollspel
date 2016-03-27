@@ -17,12 +17,10 @@ public abstract class Location implements LocationInterface {
 	protected List<Action> availableActions = new ArrayList<Action>();
 	
 	public Location() {
-		
 	}
 	
 	public Location(String description) {
 		this.description = description;
-		
 	}
 
 	public Location getNorthExit() {

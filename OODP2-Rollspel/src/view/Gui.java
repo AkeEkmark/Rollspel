@@ -3,6 +3,8 @@ package view;
 import javax.swing.JFrame;
 
 import controller.Facade;
+import controller.states.DefaultState;
+import controller.states.StateInterface;
 import model.modelUtilities.ModelFacade;
 
 public class Gui extends JFrame implements Runnable{
@@ -26,5 +28,8 @@ public class Gui extends JFrame implements Runnable{
 	public void run() {
 		this.add(new GamePanel(modelFacade));
 		this.setVisible(true);
+		StateInterface state = new DefaultState(Facade.getModel());
+		state.setDefaultState(state);
+		state.interactionLoop();
 	}
 }

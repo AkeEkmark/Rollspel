@@ -19,7 +19,6 @@ public class TrapCommand implements CommandInterface {
 	public void execute() throws MonsterIsDeadException, CharacterIsDeadException {
 		GameOutput.addGameText(trap.getDescription(), false);
 		trapTriggered();
-
 	}
 	private void trapTriggered() throws CharacterIsDeadException{
 		int heroTmp = d20.roll() + hero.getAgility();

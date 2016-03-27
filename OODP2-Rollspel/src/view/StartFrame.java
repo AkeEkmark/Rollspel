@@ -41,7 +41,7 @@ public class StartFrame extends JFrame implements ComponentListener {
 	}
 	@Override
 	public void componentHidden(ComponentEvent e) {
-		this.setVisible(false);
+		this.dispose();
 		
 	}
 }

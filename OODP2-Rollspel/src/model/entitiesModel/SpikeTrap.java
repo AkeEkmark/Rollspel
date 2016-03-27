@@ -3,8 +3,8 @@ package model.entitiesModel;
 public class SpikeTrap extends Trap {
 
 	public SpikeTrap(){
-		super.damage = 10;
-		super.difficulty = 25;
+		super.damage = 5;
+		super.difficulty = 20;
 		super.hasTriggered = false;
 		super.description = "A number of spikes shoot out from the floor";
 	}

@@ -1,7 +1,7 @@
 package model.roomModel;
 
-import model.Factory.ActionBuilder;
+import model.Factory.ActionButtonBuilder;
 
 public interface Visitable {
-	public void accept(ActionBuilder actionBuilder);
+	public void accept(ActionButtonBuilder actionBuilder);
 }

@@ -15,7 +15,6 @@ public class MoveCommand implements CommandInterface {
 
 	@Override
 	public void execute() {
-		
 	}
 
 	public void goNorth() {
@@ -28,7 +27,6 @@ public class MoveCommand implements CommandInterface {
 
 	public void goWest() {
 		modelFacade.moveCharacter(currentLoc.getWestExit());
-		
 	}
 
 }

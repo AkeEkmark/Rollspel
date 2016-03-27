@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import controller.Facade;
-import controller.states.DefaultState;
-import controller.states.StateInterface;
 
 public class ChoicePanel extends JPanel implements ActionListener {
 	private Facade facade;
@@ -18,7 +16,6 @@ public class ChoicePanel extends JPanel implements ActionListener {
 
 	public ChoicePanel(Facade facade, Gui gui) {
 		super();
-		this.setVisible(true);
 		this.facade = facade;
 		this.gui = gui;
 		add(new InformationPanel());
@@ -29,7 +26,7 @@ public class ChoicePanel extends JPanel implements ActionListener {
 		JButton startButton = new JButton("<html><h1>Start</h1></html>");
 		add(startButton);
 		startButton.addActionListener(this);
-		repaint();
+		this.setVisible(true);
 	}
 
 	@Override
@@ -38,9 +35,6 @@ public class ChoicePanel extends JPanel implements ActionListener {
 		Thread guiThread = new Thread(gui);
 		guiThread.start();
 		this.setVisible(false);
-		StateInterface state = new DefaultState(facade.getModel());
-		state.setDefaultState(state);
-		state.interactionLoop();
 		this.setEnabled(false);
 	}
 

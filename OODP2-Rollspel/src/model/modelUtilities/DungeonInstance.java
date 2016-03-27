@@ -6,15 +6,12 @@ import model.entitiesModel.Monster;
 import model.entitiesModel.Quest;
 import model.entitiesModel.Trap;
 import model.roomModel.Location;
-import model.roomModel.MonsterLocation;
-import model.roomModel.TrapLocation;
 
 public class DungeonInstance implements LocationInstance {
 	private List<Location> dungeonMap;
 
 	private Hero character;
 	private int index = 0;
-	private Monster monster = null;
 	
 	public DungeonInstance(List<Location> dungeonMap){
 		this.dungeonMap = dungeonMap;
@@ -46,11 +43,6 @@ public class DungeonInstance implements LocationInstance {
 
 	public Monster getMonster() {
 		return getCurrentLocation().getMonster();
-	}
-
-	public void removeFightAction() {
-		
-		
 	}
 
 	public Trap getTrap() {

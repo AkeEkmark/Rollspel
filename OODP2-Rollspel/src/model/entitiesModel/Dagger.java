@@ -2,8 +2,8 @@ package model.entitiesModel;
 
 public class Dagger extends Weapon {
 
-public Dagger(){
-	super.modifier = 0;
-	super.name = "Dagger";
-}
+	public Dagger() {
+		super.modifier = 0;
+		super.name = "Dagger";
+	}
 }

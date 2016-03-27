@@ -15,9 +15,7 @@ public class LootCommand implements CommandInterface {
 	}
 	@Override
 	public void execute()  {
-		System.out.println("Loootar");
 		modelFacade.loot(currentLoc.getLoot());
-		GameOutput.addGameText(currentLoc.getLoot().lootDesc(), false);
+		GameOutput.addGameText(currentLoc.getLoot().lootDesc()+"\n", false);
 	}
-
 }

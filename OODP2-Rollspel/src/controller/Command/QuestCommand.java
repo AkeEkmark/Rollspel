@@ -24,6 +24,7 @@ public class QuestCommand implements CommandInterface, Observer {
 	@Override
 	public void execute() throws MonsterIsDeadException, CharacterIsDeadException {
 		QuestFrame questFrame = new QuestFrame(quest);
+		questFrame.start();
 	}
 
 	@Override

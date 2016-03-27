@@ -14,7 +14,6 @@ public class MonsterLocation extends LocationDecorator implements LocationInterf
 		super(location);
 		this.monster = monster;
 		addAction(Action.Fight);
-
 	}
 
 	public Monster getMonster() {

@@ -1,14 +1,14 @@
 package view;
 
-import java.awt.Color;
 import java.awt.Dimension;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 public class ClassPanel extends JPanel {
+	
+	private static final long serialVersionUID = 2312794371052919082L;
 	private ButtonGroup buttonGroup;
 	private JRadioButton warrior;
 	private JRadioButton rogue;

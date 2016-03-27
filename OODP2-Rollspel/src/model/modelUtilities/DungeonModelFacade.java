@@ -27,7 +27,6 @@ public class DungeonModelFacade extends Observable implements ModelFacade {
 		di.moveCharacter(nextRoom);
 		setChanged();
 		notifyObservers();
-
 	}
 
 	@Override
@@ -66,10 +65,7 @@ public class DungeonModelFacade extends Observable implements ModelFacade {
 		}
 		return false;
 	}
-	@Override
-	public void monsterIsSlain() {
-		di.removeFightAction();
-	}
+
 	@Override
 	public Trap getTrap() {
 		return di.getTrap();

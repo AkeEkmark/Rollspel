@@ -14,7 +14,6 @@ public class LootLocation extends LocationDecorator implements LocationInterface
 		super(location);
 		this.loot = loot;
 		addAction(Action.loot);
-
 	}
 
 	public Loot getLoot() {

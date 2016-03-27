@@ -45,7 +45,6 @@ public class FightState implements StateInterface, Runnable{
 				fight.execute();
 			} catch (MonsterIsDeadException e) {
 				GameOutput.addGameText("The "+monster.getName()+" is dead", false);
-				modelFacade.monsterIsSlain();
 				changeState(defaultState);
 				break;
 			} catch (CharacterIsDeadException e) {
@@ -53,7 +52,7 @@ public class FightState implements StateInterface, Runnable{
 				break;
 			}
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

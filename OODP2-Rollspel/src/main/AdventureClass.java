@@ -3,13 +3,12 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
-import controller.DungeonLocationBuilder;
+import model.Factory.DungeonLocationBuilder;
 import model.entitiesModel.ChainMail;
 import model.entitiesModel.DarkDemon;
 import model.entitiesModel.DeathTrap;
 import model.entitiesModel.Skeleton;
 import model.entitiesModel.SpikeTrap;
-import model.entitiesModel.TestQuest;
 import model.entitiesModel.Zweihander;
 import model.roomModel.Location;
 
@@ -19,16 +18,17 @@ public class AdventureClass {
 
 	public AdventureClass() {
 
-		
 		DungeonLocationBuilder dlb = new DungeonLocationBuilder();
 
-		Location firstRoom = dlb.buildLocation("start add description", null, null, null, new TestQuest("Skriv in ett nummer"));
+		Location firstRoom = dlb.buildLocation("You wake up in a cell, your memory is drawing a blank on how you got here. \n"
+				+ "The celldoor is open and you grab a dagger and a leather harness just outside the cell.\n"
+				+ "There is a door to the north with some faint light coming through the cracks\n", null, null, null, null);
 
 		dungeonMap.add(firstRoom);
 
 		Location secondRoom = dlb.buildLocation(
-				" A long narrow tunnel that descends towards the light of a room further ahead. \n You see a large chest in an alcove "
-				+ "along the west wall and a room further to the north",
+				"A long narrow tunnel that descends towards the light of a room further ahead. \n You see a large chest in an alcove "
+				+ "along the west wall and a room further to the north\n",
 				new Skeleton("In the distant you hear footsteps echoing and a rattling sound. "
 						+ "A skeleton prison guard becomes visible and he has spotted you. "
 						+ "He draws his sword and screams in rage as he runs towards you in a furious attack. "
@@ -36,7 +36,7 @@ public class AdventureClass {
 		firstRoom.setNorthExit(secondRoom);
 		dungeonMap.add(secondRoom);
 
-		Location thirdRoom = dlb.buildLocation("add description trap room", null, new ChainMail(), new SpikeTrap(), null);
+		Location thirdRoom = dlb.buildLocation("A small dark room, There is a big chest in the middle of the room.\n", null, new ChainMail(), new SpikeTrap(), null);
 		secondRoom.setNorthExit(thirdRoom);
 		dungeonMap.add(thirdRoom);
 
@@ -46,20 +46,20 @@ public class AdventureClass {
 				+ "The inscription on the east door reads as follows: \n "
 				+ "What begins and has no end? And another inscription is carved on the west door: \n "
 				+ "What is always coming but never arrives? \n You reckon that theese are riddles of some kind, "
-				+ "which door do you choose?", null, null, null, null);
+				+ "which door do you choose?\n", null, null, null, null);
 		// riddle sixtSense roll!? answer is decay and tomorrow
 		thirdRoom.setNorthExit(fourthRoom);
 		dungeonMap.add(fourthRoom);
 
 		Location fifthRoom = dlb.buildLocation("As you enter through the gate and walk into a vast dark corridor, "
 				+ "you are strucked by a nagging feeling that something is wrong.. \n "
-				+ "Somehow you can sense the strong prescence of an evil omnipotent being who have set a "
-				+ "trap by which its to late to escape from.", null, null, new DeathTrap(), null);
+				+ "Somehow you can sense the strong prescence of an evil omnipotent being who has set a "
+				+ "trap by which its to late to escape from.\n", null, null, new DeathTrap(), null);
 		dungeonMap.add(fifthRoom);
 		
 		//room 6 was supposed to be wizard room, add if time permits..
 		Location sixthRoom = dlb.buildLocation("A large oval chamber with an ornamented altar with mystical engravings in its centre. \n "
-				+ "To the north you see a spiral staircase descending.", new DarkDemon("A man dressed in a black robe kneels in front of "
+				+ "To the north you see a spiral staircase descending.\n", new DarkDemon("A man dressed in a black robe kneels in front of "
 						+ "the altar with his back turned against you. \n An aura of evil surrounds the being and it "
 						+ "grows stronger by the second. \n When the man becomes aware of your prescence he "
 						+ "suddenly and swiftly turns towards you, At first glanze, he appears to be human but "
@@ -79,8 +79,6 @@ public class AdventureClass {
 		dungeonMap.add(seventhRoom);
 		sixthRoom.setNorthExit(seventhRoom);
 		
-		
-
 	}
 
 	public List<Location> getDungeonMap() {

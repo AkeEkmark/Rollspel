@@ -1,6 +1,7 @@
 package model.entitiesModel;
 
-public abstract class Potion implements Loot{
+public abstract class Potion implements Loot {
+	
 	protected String name;
 	protected boolean hasBeenLooted;
 	@Override
@@ -24,5 +25,4 @@ public abstract class Potion implements Loot{
 	public boolean isPotion() {
 		return true;
 	}
-
 }

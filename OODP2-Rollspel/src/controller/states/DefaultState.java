@@ -23,11 +23,6 @@ public class DefaultState implements StateInterface, Observer {
 	public void interactionLoop() {
 		System.out.println("defaultstate "+this);
 		GameOutput.addGameText(modelFacade.getLocation().getDescription(), false);
-		try {
-			Thread.sleep(10);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		if (location.getAvailableActions().contains(Action.Fight)) {
 			if (modelFacade.monsterIsAlive()) {
 				FightState fight = new FightState(modelFacade);
@@ -68,7 +63,6 @@ public class DefaultState implements StateInterface, Observer {
 	@Override
 	public void setDefaultState(StateInterface state) {
 		this.defaultState = state;
-		
 	}
 
 }

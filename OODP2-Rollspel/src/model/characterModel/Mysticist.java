@@ -10,6 +10,5 @@ public class Mysticist extends Hero{
 		super.hitpoints = 30;
 		super.maxHitpoints = 30;
 		super.characterClass = "Mysticist";
-		
 	}
 }

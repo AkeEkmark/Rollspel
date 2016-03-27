@@ -16,8 +16,8 @@ public class GameOutput implements Runnable {
 			new GameOutput();
 		}
 		return gameOutPut;
-		
 	}
+	
 	public static void addGameText(String s, boolean animated){
 		getInstance().getTextList().add(new GameText(s, animated));
 		
@@ -25,7 +25,6 @@ public class GameOutput implements Runnable {
 	
 	public GameTextList<GameText> getTextList() {
 		return gameText;
-		
 	}
 
 	@Override

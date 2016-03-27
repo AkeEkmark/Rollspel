@@ -2,33 +2,29 @@ package model.roomModel;
 
 import controller.Command.LootCommand;
 import controller.Command.MoveCommand;
-import model.Factory.ActionBuilder;
+import model.Factory.ActionButtonBuilder;
 import model.characterModel.CharacterIsDeadException;
 import model.entitiesModel.MonsterIsDeadException;
 
 public enum Action implements Visitable, Executable {
-	
-	
-	
+
 	Fight("Fight!") {
 
 		@Override
-		public void accept(ActionBuilder actionBuilder) {
-		
-			
+		public void accept(ActionButtonBuilder actionBuilder) {
+
 		}
 
 		@Override
 		public void execute() {
-			// TODO Auto-generated method stub
-			
+
 		}
 		
 	}, goNorth("Go North") {
 		
 
 		@Override
-		public void accept(ActionBuilder actionBuilder) {
+		public void accept(ActionButtonBuilder actionBuilder) {
 			actionBuilder.visit(this);
 			
 		}
@@ -42,7 +38,7 @@ public enum Action implements Visitable, Executable {
 	}, goEast("Go East") {
 
 		@Override
-		public void accept(ActionBuilder actionBuilder) {
+		public void accept(ActionButtonBuilder actionBuilder) {
 			actionBuilder.visit(this);
 			
 		}
@@ -57,7 +53,7 @@ public enum Action implements Visitable, Executable {
 	}, goWest("Go West") {
 
 		@Override
-		public void accept(ActionBuilder actionBuilder) {
+		public void accept(ActionButtonBuilder actionBuilder) {
 			actionBuilder.visit(this);
 			
 		}
@@ -72,21 +68,20 @@ public enum Action implements Visitable, Executable {
 	}, goSouth("Go South") {
 
 		@Override
-		public void accept(ActionBuilder actionBuilder) {
+		public void accept(ActionButtonBuilder actionBuilder) {
 			actionBuilder.visit(this);
 			
 		}
 
 		@Override
 		public void execute() {
-			// TODO Auto-generated method stub
-			
+
 		}
 		
 	}, loot("Loot") {
 
 		@Override
-		public void accept(ActionBuilder actionBuilder) {
+		public void accept(ActionButtonBuilder actionBuilder) {
 			actionBuilder.visit(this);
 			
 		}
@@ -99,19 +94,18 @@ public enum Action implements Visitable, Executable {
 		}
 	}, Trap("Trap"){
 		@Override
-		public void accept(ActionBuilder actionBuilder) {
+		public void accept(ActionButtonBuilder actionBuilder) {
 	
 		}
 
 		@Override
 		public void execute() {
-			// TODO Auto-generated method stub
-			
+	
 		}
 		
 	}, Quest("quest"){
 		@Override
-		public void accept(ActionBuilder actionBuilder) {
+		public void accept(ActionButtonBuilder actionBuilder) {
 	
 		}
 

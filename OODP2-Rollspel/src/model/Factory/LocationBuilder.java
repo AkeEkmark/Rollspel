@@ -1,4 +1,4 @@
-package controller;
+package model.Factory;
 
 import model.entitiesModel.Loot;
 import model.entitiesModel.Monster;

@@ -19,8 +19,6 @@ public class CharacterStatsPanel extends JPanel implements Observer{
 	private JLabel strength;
 	private JLabel intelligence;
 	private JLabel agility;
-
-	
 	
 	public CharacterStatsPanel(Hero character) {
 		super();

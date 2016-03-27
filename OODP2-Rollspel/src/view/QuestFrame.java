@@ -21,6 +21,9 @@ public class QuestFrame extends JFrame implements ActionListener {
 	public QuestFrame(Quest quest) {
 		super();
 		this.quest = quest;
+	}
+
+	public void start() {
 		this.setSize(200, 200);
 		this.setLocationRelativeTo(null);
 		addPanel(quest);

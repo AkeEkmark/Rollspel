@@ -3,12 +3,9 @@ package view;
 import java.awt.Dimension;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import model.characterModel.Hero;
 import model.characterModel.Inventory;
 
 public class InventoryPanel extends JPanel implements Observer {
@@ -18,7 +15,6 @@ public class InventoryPanel extends JPanel implements Observer {
 	private JLabel weaponBonus;
 	private JLabel armour;
 	private JLabel armourBonus;
-	private JLabel potions;
 	private JLabel heading;
 	private static final long serialVersionUID = 9197983443064064295L;
 	

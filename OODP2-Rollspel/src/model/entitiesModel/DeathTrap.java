@@ -2,7 +2,6 @@ package model.entitiesModel;
 
 public class DeathTrap extends Trap {
 
-	
 	public DeathTrap(){
 	super.damage = 500;
 	super.difficulty = 500;

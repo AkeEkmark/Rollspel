@@ -18,7 +18,6 @@ public class Armour implements Loot {
 	@Override
 	public void setLooted() {
 		hasBeenLooted = true;
-		
 	}
 	@Override
 	public boolean isWeapon() {

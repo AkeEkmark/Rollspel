@@ -9,7 +9,6 @@ import model.entitiesModel.Trap;
 
 public interface LocationInterface {
 
-	
 	public Location getNorthExit();
 
 	public void setNorthExit(Location northExit);

@@ -8,10 +8,10 @@ import model.entitiesModel.Trap;
 import model.modelUtilities.ModelFacade;
 
 public class TrapState implements StateInterface {
-	ModelFacade modelFacade;
+	private ModelFacade modelFacade;
 	private StateInterface defaultState;
-	Trap trap;
-	Hero character;
+	private Trap trap;
+	private Hero character;
 	
 	public TrapState(ModelFacade modelFacade) {
 		this.modelFacade = modelFacade;
@@ -24,31 +24,26 @@ public class TrapState implements StateInterface {
 		System.out.println("TrapState "+this);
 		if(!trap.hasTriggered()){
 			TrapCommand t = new TrapCommand(character, trap);
-			
-				try {
-					t.execute();
-				} catch (MonsterIsDeadException e) {
-					e.printStackTrace();
-					return;
-				} catch (CharacterIsDeadException e) {
+			try {
+				t.execute();
+			} catch (MonsterIsDeadException e) {
+				e.printStackTrace();
+				return;
+			} catch (CharacterIsDeadException e) {
 				changeState(new DefeatState());
-					return;
-		}} 
-			changeState(defaultState);
-		
-
+				return;
+			}
+		} 
+		changeState(defaultState);
 	}
 
 	@Override
 	public void changeState(StateInterface state) {
 		state.interactionLoop();
-
 	}
 
 	@Override
 	public void setDefaultState(StateInterface state) {
 		this.defaultState = state;
-
 	}
-
 }

@@ -74,5 +74,4 @@ public class FightCommand implements CommandInterface {
 		}
 		villain.removeHitpoints(ft.hitPointsFromGap(gap));
 	}
-
 }
