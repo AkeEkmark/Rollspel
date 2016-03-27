@@ -9,6 +9,7 @@ import model.entitiesModel.DarkDemon;
 import model.entitiesModel.DeathTrap;
 import model.entitiesModel.Skeleton;
 import model.entitiesModel.SpikeTrap;
+import model.entitiesModel.WizardQuest;
 import model.entitiesModel.Zweihander;
 import model.roomModel.Location;
 
@@ -57,8 +58,19 @@ public class AdventureClass {
 				+ "trap by which its to late to escape from.\n", null, null, new DeathTrap(), null);
 		dungeonMap.add(fifthRoom);
 		
-		//room 6 was supposed to be wizard room, add if time permits..
-		Location sixthRoom = dlb.buildLocation("A large oval chamber with an ornamented altar with mystical engravings in its centre. \n "
+		fourthRoom.setEastExit(fifthRoom);
+		
+		Location sixthRoom = dlb.buildLocation("You open the door and step into a study where a Wizard turns to you. \nCongratulations adventurer, you have past my earlier tests but i have yet a final test "
+				+ "for you to prove your wisdom.\n If answered correctly i will give you your chance to freedom but if you are wrong you "
+				+ "will have to take the consequences and pay for your insolence.", null, null, null, new WizardQuest("When I was last in the market the Wizard begins, I asked an egg trader how many eggs he had sold that day.\n"
+						+ "He replied: My first customer said that he would buy half my eggs and half an egg more. \n"
+						+ "My second and third customers said exactly the same thing. \n"
+						+ "When I had filled all three orders I was completely sold out of eggs and yet I hadn’t broken a single egg all day. \n"
+						+ "How many eggs had the egg trader sold in all?"));
+		dungeonMap.add(sixthRoom);
+		fourthRoom.setWestExit(sixthRoom);
+	
+		Location seventhRoom = dlb.buildLocation("A large oval chamber with an ornamented altar with mystical engravings in its centre. \n "
 				+ "To the north you see a spiral staircase descending.\n", new DarkDemon("A man dressed in a black robe kneels in front of "
 						+ "the altar with his back turned against you. \n An aura of evil surrounds the being and it "
 						+ "grows stronger by the second. \n When the man becomes aware of your prescence he "
@@ -67,17 +79,17 @@ public class AdventureClass {
 						+ "Its a dark demon and he spits in rage as he unsheatens a large black broadsword with strangely carved engravings. \n -"
 						+ "filthy human, you will never leave this place alive, he hisses as he attacks you. \n "
 						+ "Prepare to fight the Dark Demon Templar"), null, null, null);
-		dungeonMap.add(sixthRoom);
+		dungeonMap.add(seventhRoom);
 		
-		fourthRoom.setEastExit(fifthRoom);
-		fourthRoom.setWestExit(sixthRoom);
-		Location seventhRoom = dlb.buildLocation("The staircase descends underground and into a tunnel, you see a distant light far ahead. \n "
+		sixthRoom.setNorthExit(seventhRoom);
+		
+		Location eightRoom = dlb.buildLocation("The staircase descends underground and into a tunnel, you see a distant light far ahead. \n "
 				+ "You run through the narrow passage which eventually leads you out in the open forest. /n "
 				+ "Your heart is pounding and you are all sweaty. \n You hear a distant gong echoes from the castle in "
 				+ "the background and your only hope is that there are no followers and that you will achieve your "
 				+ "freedom at last.. \n To be continued...", null, null, null, null);
-		dungeonMap.add(seventhRoom);
-		sixthRoom.setNorthExit(seventhRoom);
+		dungeonMap.add(eightRoom);
+		seventhRoom.setNorthExit(eightRoom);
 		
 	}
 

@@ -1,11 +1,13 @@
 package view;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import model.entitiesModel.Quest;
@@ -15,7 +17,7 @@ public class QuestFrame extends JFrame implements ActionListener {
 	private static final long serialVersionUID = -4601307154001802491L;
 	private Quest quest;
 	private JPanel questionPanel;
-	private JLabel questionLabel;
+	private JTextArea questionTextArea;
 	private JTextField questionAnswerField;
 
 	public QuestFrame(Quest quest) {
@@ -24,16 +26,16 @@ public class QuestFrame extends JFrame implements ActionListener {
 	}
 
 	public void start() {
-		this.setSize(200, 200);
 		this.setLocationRelativeTo(null);
 		addPanel(quest);
+		this.setSize(640, 480);
 		this.setVisible(true);
 	}
 
 	private void addPanel(Quest quest) {
 		questionPanel = new JPanel();
-		questionLabel = new JLabel("<html><p>"+quest.getDescription()+"</p></html>");
-		questionPanel.add(questionLabel);
+		questionTextArea = new JTextArea(quest.getDescription(), 10, 40);
+		questionPanel.add(questionTextArea);
 		questionAnswerField = new JTextField(10);
 		questionPanel.add(questionAnswerField);
 		questionPanel.setVisible(true);
