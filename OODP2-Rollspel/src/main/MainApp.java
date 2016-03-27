@@ -5,8 +5,8 @@ import controller.GameOutput;
 import model.modelUtilities.DungeonInstance;
 import model.modelUtilities.DungeonModelFacade;
 import model.modelUtilities.ModelFacade;
-import view.Gui;
-import view.StartFrame;
+import view.mainGui.Gui;
+import view.startGui.StartFrame;
 
 public class MainApp {
 

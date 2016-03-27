@@ -1,4 +1,4 @@
-package view;
+package view.mainGui;
 
 import java.awt.Dimension;
 import java.util.Observable;

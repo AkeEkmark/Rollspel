@@ -1,4 +1,4 @@
-package view;
+package view.mainGui;
 
 import java.util.List;
 import java.util.Observable;
@@ -6,10 +6,10 @@ import java.util.Observer;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import model.Factory.ActionButtonBuilder;
 import model.modelUtilities.ModelFacade;
 import model.roomModel.Action;
 import model.roomModel.Location;
+import view.ActionButtonBuilder;
 
 public class GameButtonPanel extends JPanel implements Observer {
 

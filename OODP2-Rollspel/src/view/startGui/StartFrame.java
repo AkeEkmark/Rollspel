@@ -1,4 +1,4 @@
-package view;
+package view.startGui;
 
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
@@ -6,6 +6,7 @@ import java.awt.event.ComponentListener;
 import javax.swing.JFrame;
 
 import controller.Facade;
+import view.mainGui.Gui;
 
 public class StartFrame extends JFrame implements ComponentListener {
 

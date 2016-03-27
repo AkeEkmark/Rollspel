@@ -1,10 +1,11 @@
-package view;
+package view.startGui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import controller.Facade;
+import view.mainGui.Gui;
 
 public class ChoicePanel extends JPanel implements ActionListener {
 	private Facade facade;

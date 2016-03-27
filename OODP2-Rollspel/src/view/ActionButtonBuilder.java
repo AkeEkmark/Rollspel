@@ -1,8 +1,8 @@
-package model.Factory;
+package view;
 
 import model.roomModel.Action;
-import view.ActionButton;
-import view.GameButtonPanel;
+import view.mainGui.ActionButton;
+import view.mainGui.GameButtonPanel;
 
 public class ActionButtonBuilder {
 	GameButtonPanel gameButtonPanel;

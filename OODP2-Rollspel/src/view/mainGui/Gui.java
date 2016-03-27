@@ -1,4 +1,4 @@
-package view;
+package view.mainGui;
 
 import javax.swing.JFrame;
 

@@ -3,7 +3,6 @@ package controller.Command;
 import java.util.Observable;
 import java.util.Observer;
 
-import controller.Facade;
 import controller.GameOutput;
 import controller.states.DefeatState;
 import controller.states.StateInterface;

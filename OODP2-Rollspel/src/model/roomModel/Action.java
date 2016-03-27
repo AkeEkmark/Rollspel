@@ -2,9 +2,9 @@ package model.roomModel;
 
 import controller.Command.LootCommand;
 import controller.Command.MoveCommand;
-import model.Factory.ActionButtonBuilder;
 import model.characterModel.CharacterIsDeadException;
 import model.entitiesModel.MonsterIsDeadException;
+import view.ActionButtonBuilder;
 
 public enum Action implements Visitable, Executable {
 

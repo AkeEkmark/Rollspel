@@ -84,7 +84,7 @@ public class AdventureClass {
 		sixthRoom.setNorthExit(seventhRoom);
 		
 		Location eightRoom = dlb.buildLocation("The staircase descends underground and into a tunnel, you see a distant light far ahead. \n "
-				+ "You run through the narrow passage which eventually leads you out in the open forest. /n "
+				+ "You run through the narrow passage which eventually leads you out in the open forest. \n "
 				+ "Your heart is pounding and you are all sweaty. \n You hear a distant gong echoes from the castle in "
 				+ "the background and your only hope is that there are no followers and that you will achieve your "
 				+ "freedom at last.. \n To be continued...", null, null, null, null);
